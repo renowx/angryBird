@@ -25,7 +25,7 @@ public class RenaudTests extends JFrame{
 	}
 	
 	public int f(int x){
-		return 2*(x*x) + 3*x - 1;
+		return x/2;
 	}
 	
 	public void paint(Graphics g) {
