@@ -11,7 +11,8 @@ public class Modele {
     ArrayList<Obstacle> listeObstacle;
     
     public Modele(){
-        listeObstacle= new ArrayList<>();
+        listeObstacle= new ArrayList<Obstacle>();
+        
         
     }
     

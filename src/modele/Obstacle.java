@@ -16,6 +16,8 @@ public class Obstacle {
     
     private int y;
     
+    private int taille; 
+    
     public Obstacle(int x, int y){
         this.setX(x);
         this.setY(y);
@@ -37,6 +39,20 @@ public class Obstacle {
 	public void setY(int y) {
 		this.y = y;
 	}
+
+    /**
+     * @return the taille
+     */
+    public int getTaille() {
+        return taille;
+    }
+
+    /**
+     * @param taille the taille to set
+     */
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
     
     
 }
