@@ -7,6 +7,7 @@ package tests;
 
 import Vue.Jframe;
 import Vue.Panel;
+import modele.Modele;
 
 /**
  *
@@ -16,8 +17,10 @@ public class LudoTests {
 
     
         public static void main(String[] args){
-            Jframe jf= new Jframe();
-            jf.add(new Panel());
+           // Jframe jf= new Jframe();
+            //jf.add(new Panel());
+            Modele modele = new Modele();
+            System.out.println(modele.getListeObstacle());
         }
        
     }
