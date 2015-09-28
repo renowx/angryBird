@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Modele {
-    ArrayList<Obstacle> listeObstacle;
+    private ArrayList<Obstacle> listeObstacle;
     
     
     public Modele(){
@@ -20,10 +20,24 @@ public class Modele {
         listeObstacle.add(new Obstacle(1400, 200,75));
         while(i!=nbObstacle){
             taille=listeObstacle.size()-1;
-            listeObstacle.add(new Obstacle(1400,(listeObstacle.get(taille).getY()+100),50+new Random().nextInt(50))); // obstcle située de 100 en dessous de l'obtacle précédant, table variable entre 50 et 100
+            listeObstacle.add(new Obstacle(1400,(getListeObstacle().get(taille).getY()+100),50+new Random().nextInt(50))); // obstcle située de 100 en dessous de l'obtacle précédant, table variable entre 50 et 100
         i++;
         }
         
+    }
+
+    /**
+     * @return the listeObstacle
+     */
+    public ArrayList<Obstacle> getListeObstacle() {
+        return listeObstacle;
+    }
+
+    /**
+     * @param listeObstacle the listeObstacle to set
+     */
+    public void setListeObstacle(ArrayList<Obstacle> listeObstacle) {
+        this.listeObstacle = listeObstacle;
     }
     
 }

@@ -55,5 +55,11 @@ public class Obstacle {
         this.taille = taille;
     }
     
+    public String toString(){
+        return "x: "+x+" y: "+y+" taille: "+taille;
+        
+        
+    }
+    
     
 }
