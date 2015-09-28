@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modele;
+package modele;
 
 /**
- *
+ *0.
  * Classe qui représente les Obstacles dans lequelles l'oiseau peut rentrée.
  * Ajouter une ennum avec rond et carrée pour le livrable 2;
  */
