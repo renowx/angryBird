@@ -6,6 +6,7 @@
 package tests;
 
 import Vue.Jframe;
+import Vue.Panel;
 
 /**
  *
@@ -13,8 +14,12 @@ import Vue.Jframe;
  */
 public class LudoTests {
 
-    public LudoTests() {
-       Jframe jf= new Jframe();
+    
+        public static void main(String[] args){
+            Jframe jf= new Jframe();
+            jf.add(new Panel());
+        }
+       
     }
 
-}
+

@@ -5,6 +5,7 @@
  */
 package Vue;
 
+import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -13,7 +14,7 @@ public class Jframe extends JFrame {
     private JPanel panel;
 
     public Jframe() {
-        
+    
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
