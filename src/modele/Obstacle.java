@@ -18,9 +18,10 @@ public class Obstacle {
     
     private int taille; 
     
-    public Obstacle(int x, int y){
+    public Obstacle(int x, int y, int taille){
         this.setX(x);
         this.setY(y);
+        this.taille=taille;
         
     }
 
