@@ -8,10 +8,6 @@ package Vue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Ludovic
- */
 public class Jframe extends JFrame {
 
     private JPanel panel;

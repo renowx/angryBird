@@ -5,10 +5,6 @@
  */
 package main;
 
-/**
- *
- * @author Ludovic
- */
 public class Constante {
     
     final static int tailleFenetreX=500;
