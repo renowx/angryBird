@@ -14,7 +14,7 @@ public class RenaudTests extends JFrame{
 	
 	public RenaudTests(){
 		JPanel jpan = new JPanel();
-		setSize(new Dimension(1080, 1920));
+		setSize(new Dimension(1080, 600));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -25,7 +25,7 @@ public class RenaudTests extends JFrame{
 	}
 	
 	public int f(int x){
-		return x - 2;
+		return 2*(x*x) + 3*x - 1;
 	}
 	
 	public void paint(Graphics g) {
