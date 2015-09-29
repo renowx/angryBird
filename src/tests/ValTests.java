@@ -1,36 +1,47 @@
 package tests;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.nio.Buffer;
-
+import java.awt.Dimension;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class ValTests extends JPanel {
-	public JFrame frame;
-    public JPanel panel;
+public class ValTests extends JFrame {
 
-    public ValTests(){
-        frame=new JFrame();
-        panel=new JPanel();
+	private Panneau pan = new Panneau();
 
-        panel.setSize(500,500);
-        frame.setSize(500,500);
-        frame.setVisible(true);
-        frame.add(panel);
-        panel.repaint();
-    }
+	public ValTests() {
+		this.setTitle("Animation");
+		this.setSize(600, 400);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setContentPane(pan);
+		this.setVisible(true);
+		go();
+	}
 
-    public void paint(Graphics g){
-        super.paintComponents(g);
-        g.drawOval(100, 200, 50, 50);
-    }
-
-    public static void main(String args[]){
-        new ValTests();
-    }
+	private void go() {
+		for (int i = -50; i < pan.getWidth(); i++) {
+			int x = pan.getPosX()/*, y = pan.getPosY()*/;
+			x++;
+			//y++;
+			pan.setPosX(x);
+			//pan.setPosY(y);
+			pan.repaint();
+			repaint();
+			try {
+				//Rapidité du déplacement
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			//Arrete arrive au bord de la feunetre
+			if(x == pan.getWidth()-50 /*|| y == pan.getHeight()-50*/){
+				i=pan.getWidth();
+				} 
+		}
+	}
 	
+	public static void main(String[] args){
+		new ValTests();
+	}
 	
-	
+
 }
