@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 public class AlexTests extends JFrame {
 
 	public AlexTests() {
+		
 		AlexTests testAlex = new AlexTests();	
 	
 		JFrame frame = new JFrame("Hungry Birds");
