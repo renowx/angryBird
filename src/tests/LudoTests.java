@@ -6,7 +6,11 @@
 package tests;
 
 import Vue.Jframe;
-import Vue.Panel;
+import Vue.Jpanel;
+import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import modele.Modele;
 
 /**
@@ -17,10 +21,19 @@ public class LudoTests {
 
     
         public static void main(String[] args){
-           // Jframe jf= new Jframe();
-            //jf.add(new Panel());
-            Modele modele = new Modele();
-            System.out.println(modele.getListeObstacle());
+            new Jframe();
+            
+            
+            //JPanel jp= new JPanel();
+            //jp.getGraphics();
+            //JFrame  jf= new JFrame();
+            //jf.add(jp);
+            //jf.setVisible(true);
+            //jf.setSize(500, 500);
+            
+          
+            
+            
         }
        
     }

@@ -5,20 +5,30 @@
  */
 package Vue;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import modele.Modele;
 
 public class Jframe extends JFrame {
 
-    private JPanel panel;
+    Jpanel jpanel;
+    Modele modele;
 
     public Jframe() {
-    
-        
+
+        System.out.println("création de la Jframe.");
+        modele = new Modele();
+        jpanel = new Jpanel(this, modele);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setContentPane(jpanel);
+        //jpanel.setBackground(Color.yellow);
+        this.setLocationRelativeTo(null);
+
     }
 
 }
