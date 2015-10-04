@@ -12,6 +12,8 @@ public class Main {
     public static void main(String[] args) {
         
         Jframe jframe=new Jframe();
+        
+        ValTests test = new ValTests();
     }
     
 }
