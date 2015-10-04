@@ -19,6 +19,7 @@ public class Obstacle {
     private int taille; 
     
     public Obstacle(int x, int y, int taille){
+        System.out.println("création d'un obtacle");
         this.setX(x);
         this.setY(y);
         this.taille=taille;

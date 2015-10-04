@@ -5,13 +5,13 @@
  */
 package main;
 
-import tests.LudoTests;
+import Vue.Jframe;
 
 public class Main {
 
     public static void main(String[] args) {
         
-        
+        Jframe jframe=new Jframe();
     }
     
 }
