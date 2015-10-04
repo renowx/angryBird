@@ -48,7 +48,7 @@ public class Jpanel extends JPanel {
      * @param g le Graphics du Jpanel
      */
     public void dessinerObstacle(Graphics g) {
-        g.drawRect(0, 0, 50, 50);
+        
         for (Obstacle o : getModele().getListeObstacle()) {
             System.out.println("postion du x: "+o.getX()+" position du y: "+o.getY()+" taille: "+o.getTaille());
             g.drawOval(o.getX(), o.getY(), o.getTaille(), o.getTaille());

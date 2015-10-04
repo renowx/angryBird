@@ -22,6 +22,8 @@ public class LudoTests {
     
         public static void main(String[] args){
             new Jframe();
+            
+            
             //JPanel jp= new JPanel();
             //jp.getGraphics();
             //JFrame  jf= new JFrame();
