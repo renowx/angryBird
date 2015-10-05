@@ -41,4 +41,20 @@ public class Modele {
         this.listeObstacle = listeObstacle;
     }
     
+    /**
+     *
+     * @return l'obctacle dans lequelle l'oiseau est rentrée, null tant que l'oiseau n'est pas rentrée dans un obstacle.
+     */
+    public Obstacle oiseauRencontreObstacle(Oiseau o){
+        int distance; // distance entre l'oiseau et les obstacles
+        for(Obstacle obstacle: listeObstacle){
+            distance=(int) o.creationPoint().distance(obstacle.creationPoint()); // calcule de la disatance 
+            
+            if(o.getTaille()+obstacle.getTaille()<distance){
+                return obstacle;
+            }
+        }
+        return null;
+    }
+    
 }

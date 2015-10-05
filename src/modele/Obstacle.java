@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.awt.Point;
+
 /**
  *0.
  * Classe qui représente les Obstacles dans lequelles l'oiseau peut rentrée.
@@ -60,6 +62,9 @@ public class Obstacle {
         return "x: "+x+" y: "+y+" taille: "+taille;
         
         
+    }
+    public Point creationPoint(){
+        return new Point(x, y);
     }
     
     
