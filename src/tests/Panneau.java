@@ -10,14 +10,14 @@ public class Panneau extends JPanel {
 	private int posY = 300;
 	private int posXo = 550;
 	private int posYo = 0;
-	private int posXo2 = 750;
-	private int posYo2 = 300;
+	private int posXo2 = 650;
+	private int posYo2 = 400;
 
 	public void paintComponent(Graphics g) {
 
 		// g.setColor(Color.red);
 		g.drawOval(posX, posY, 50, 50);
-		g.drawRect(posXo, posYo, 25, 550);
+		//g.drawRect(posXo, posYo, 25, 550);
 		g.drawOval(posXo2, posYo2, 50, 50);
 
 		// Utilisation de Methode par la suite de type Circle(),
