@@ -1,13 +1,18 @@
 package tests;
 
+import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
+import modele.Oiseau;
+
 public class ValTests extends JFrame {
 
 	private Panneau pan = new Panneau();
+	private Oiseau o = new Oiseau();
 	JFrame frame = new JFrame();
 	Timer time = new Timer();
 	int x = pan.getPosX(), y = pan.getPosY();
@@ -35,41 +40,37 @@ public class ValTests extends JFrame {
 	private void go() {
 		int x = pan.getPosX(), y = pan.getPosY();
 
-		while (!(x >= pan.getPosXo2() - 25 && y <= pan.getPosYo2() - 25)) {
-			x = pan.getPosX();
-			y = pan.getPosY();
-			x = x + 2;
-			y = (int) Parabole(x, y);
-			pan.setPosX(x);
-			pan.setPosY(y);
-			frame.repaint();
-			repaint();
-
-			// Vitesse de deplacement pour les tests passage au Timer par la
-			// suite
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			// Arret de l'objet a ameliorer
-			if (x == frame.getWidth() - 100 || y == frame.getWidth() - 100
-					|| x == frame.getHeight() - 100
-					|| y == frame.getHeight() - 100
-					|| (x == pan.getPosXo2() && y == pan.getPosYo2()) || x <= 0
-					|| y <= 0) {
-
-			}
-		}
-
-		x = pan.getPosXo2();
-		y = pan.getPosYo2();
+		x = pan.getPosX();
+		y = pan.getPosY();
 		x = x + 2;
 		y = (int) Parabole(x, y);
-		pan.setPosXo2(x);
-		pan.setPosYo2(y);
+		pan.setPosX(x);
+		pan.setPosY(y);
+
 		frame.repaint();
 		repaint();
+
+		// Vitesse de deplacement pour les tests passage au Timer par la
+		// suite
+
+		// Arret de l'objet a ameliorer
+		if (x == frame.getWidth() - 100 || y == frame.getWidth() - 100
+				|| x == frame.getHeight() - 100 || y == frame.getHeight() - 100
+				|| (x == pan.getPosXo2() && y == pan.getPosYo2()) || x <= 0
+				|| y <= 0) {
+
+		}
+		if ((x >= pan.getPosXo2() - 25 && y <= pan.getPosYo2() - 25)) {
+
+			x = pan.getPosXo2();
+			y = pan.getPosYo2();
+			x = x + 2;
+			y = (int) Parabole(x, y);
+			pan.setPosXo2(x);
+			pan.setPosYo2(y);
+			frame.repaint();
+			repaint();
+		}
 
 	}
 
@@ -85,6 +86,5 @@ public class ValTests extends JFrame {
 
 	public static void main(String[] args) {
 		new ValTests();
-	}
 
-}
+	}
