@@ -12,6 +12,7 @@ public class Panneau extends JPanel {
 	private int posYo = 0;
 	private int posXo2 = 650;
 	private int posYo2 = 400;
+	private ArrayList<Point> pts = new ArrayList<>();
 
 	public void paintComponent(Graphics g) {
 
@@ -19,7 +20,12 @@ public class Panneau extends JPanel {
 		g.drawOval(posX, posY, 50, 50);
 		//g.drawRect(posXo, posYo, 25, 550);
 		g.drawOval(posXo2, posYo2, 50, 50);
-
+		
+		/*----Tracage de la trajectoire-----*/
+		for (int i=0; i<pts.size();i+=2){
+			g.fillOval(pts.get(i).x+2, pts.get(i).y+3, 5, 5);
+		}
+		pts.add(new Point(posX,posY));
 		// Utilisation de Methode par la suite de type Circle(),
 		// Rectangle() ...
 		// Pour eviter trop de variables de position
