@@ -21,7 +21,7 @@ public class Panneau extends JPanel {
 		//g.drawRect(posXo, posYo, 25, 550);
 		g.drawOval(posXo2, posYo2, 50, 50);
 		
-		/*----Tracage de la trajectoire-----*/
+		/*----Tracage de la trajectoire------*/
 		for (int i=0; i<pts.size();i+=2){
 			g.fillOval(pts.get(i).x+2, pts.get(i).y+3, 5, 5);
 		}
