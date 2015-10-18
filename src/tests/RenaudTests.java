@@ -55,7 +55,7 @@ public class RenaudTests extends JFrame {
 			liste.add(new Point(x, y));
 			frame.repaint();
 			repaint();
-			
+
 			// Vitesse de deplacement pour les tests passage au Timer par la
 			// suite
 			try {
@@ -70,7 +70,7 @@ public class RenaudTests extends JFrame {
 					|| (x == pan.getPosXo2() && y == pan.getPosYo2()) || x <= 0
 					|| y <= 0) {
 			}
-			
+
 		}
 
 		x = pan.getPosXo2();
