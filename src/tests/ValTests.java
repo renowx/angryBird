@@ -1,5 +1,6 @@
 package tests;
 
+import modele.Panneau;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -88,3 +89,4 @@ public class ValTests extends JFrame {
 		new ValTests();
 
 	}
+}

@@ -5,19 +5,19 @@
  */
 package main;
 
-<<<<<<< HEAD
-=======
+
+
 import Vue.Jframe;
 import tests.ValTests;
 
->>>>>>> origin/master
+
 public class Main {
 
     public static void main(String[] args) {
         
       Jframe jframe=new Jframe();
         
-        ValTests test = new ValTests();
+        //ValTests test = new ValTests();
     }
     
 }

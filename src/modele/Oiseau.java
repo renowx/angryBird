@@ -19,7 +19,7 @@ public class Oiseau extends JPanel {
 	//	g.drawPolygon(10, 10, 10);
 		
 		for (int i=0; i<pts.size();i+=2){
-			g.fillOval(pts.get(i).x+2, pts.get(i).y+3, 3, 3);
+			g.fillOval((int)pts.get(i).x+2, (int)pts.get(i).y+3, 3, 3);
 		}
 		pts.add(new Point(posX+25,posY+25));
 	}
