@@ -1,8 +1,11 @@
-package tests;
+package modele;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
+
+import tests.Point;
 
 public class Panneau extends JPanel {
 
@@ -23,7 +26,7 @@ public class Panneau extends JPanel {
 		
 		/*----Tracage de la trajectoire------*/
 		for (int i=0; i<pts.size();i+=2){
-			g.fillOval(pts.get(i).x+2, pts.get(i).y+3, 5, 5);
+			g.fillOval((int)pts.get(i).x+2,(int)pts.get(i).y+3, 5, 5);
 		}
 		pts.add(new Point(posX,posY));
 		// Utilisation de Methode par la suite de type Circle(),
