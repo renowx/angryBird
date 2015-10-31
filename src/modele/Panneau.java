@@ -27,8 +27,8 @@ public class Panneau extends JPanel {
 		g.drawOval(posXo2, posYo2, 50, 50);
 		
 		/*----Tracage de la trajectoire------*/
-		for (int i=0; i<pts.size();i+=2){
-			g.fillOval((int)pts.get(i).x+2,(int)pts.get(i).y+3, 5, 5);
+		for (int i=0; i<pts.size();i++){
+			g.fillOval((int)pts.get(i).x+2,(int)pts.get(i).y+25, 5, 5);
 		}
 		pts.add(new Point(posX,posY));
 		// Utilisation de Methode par la suite de type Circle(),

@@ -5,6 +5,7 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
+import modele.BecTest;
 import modele.Oiseau;
 import modele.Panneau;
 
@@ -16,7 +17,6 @@ public class RenaudTests extends JFrame {
 	Timer time = new Timer();
 	int x = pan.getPosX(), y = pan.getPosY();
 	int t = 1;
-
 	public RenaudTests() {
 		frame.setTitle("Angry_Bird");
 		frame.setSize(1200, 910);
@@ -43,7 +43,7 @@ public class RenaudTests extends JFrame {
 		y = 600-g(t);
 		pan.setPosX(x);
 		pan.setPosY(y);
-
+		
 		frame.repaint();
 		repaint();
 		t = t + 1;
@@ -52,11 +52,11 @@ public class RenaudTests extends JFrame {
 	}
 
 	private int f(int t) {
-		return (int)(((0.01) * (t * t)) + 2 * t );
+		return (int)(((0.03) * (t * t)) + 2 * t );
 	}
 
 	private int g(int t) {
-		return (int) t;
+		return (int) t+1;
 	}
 
 	public static void main(String[] args) {
