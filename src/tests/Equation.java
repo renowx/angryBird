@@ -12,9 +12,9 @@ public class Equation {
 		return t;
 	}
 	
-	public double g(double t){
+	public double g(double t, float k){
 		
-		return Math.sin(0.3*t)*200;
+		return k*Math.sin(0.3*t)*200;
 		
 	}
 	

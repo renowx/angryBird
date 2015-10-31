@@ -1,6 +1,7 @@
 package tests;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,8 +24,11 @@ public class RenaudTest2 extends JFrame{
 	public static void main(String args[]) {
 		Equation eq = new Equation(2);
 		int cpt = 0;
-		for (double t = 0; t <= 30; t = t + 0.001) {
-			liste.add(new Point(eq.f(t), eq.g(t)));
+		Random rand = new Random();
+		
+		float k = rand.nextFloat()*5;
+		for (double t = 0; t <= 15; t = t + 0.001) {
+			liste.add(new Point(eq.f(t), eq.g(t,k)));
 			System.out.println(liste.get(cpt).toString());
 			cpt++;
 		}
@@ -59,7 +63,7 @@ public class RenaudTest2 extends JFrame{
 		
 		frame.repaint();
 		repaint();
-		i = i + 25;
+		i = i + 35;
 	}
 
 }
