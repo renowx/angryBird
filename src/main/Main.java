@@ -8,6 +8,7 @@ package main;
 
 
 import Vue.Jframe;
+import tests.RenaudTest2;
 import tests.ValTests;
 
 
@@ -15,9 +16,8 @@ public class Main {
 
     public static void main(String[] args) {
         
-      //Jframe jframe=new Jframe();
+     new RenaudTest2();
         
-        ValTests test = new ValTests();
     }
     
 }

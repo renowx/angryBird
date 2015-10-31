@@ -26,7 +26,8 @@ public class RenaudTest2 extends JFrame{
 		int cpt = 0;
 		Random rand = new Random();
 		
-		float k = rand.nextFloat()*5;
+		float k = rand.nextFloat()*4;
+		
 		for (double t = 0; t <= 15; t = t + 0.001) {
 			liste.add(new Point(eq.f(t), eq.g(t,k)));
 			System.out.println(liste.get(cpt).toString());
