@@ -1,23 +1,37 @@
 package tests;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
-import modele.BecTest;
-import modele.Oiseau;
 import modele.Panneau;
 
-public class RenaudTests extends JFrame {
 
+public class RenaudTest2 extends JFrame{
+	
 	private Panneau pan = new Panneau();
-	private Oiseau o = new Oiseau();
+
 	JFrame frame = new JFrame();
 	Timer time = new Timer();
-	int x = pan.getPosX(), y = pan.getPosY();
-	int t = 1;
-	public RenaudTests() {
+	int x = pan.getPosX();
+	int y = pan.getPosY();
+	static ArrayList<Point> liste = new ArrayList<>();
+	int i = 0;
+	
+	public static void main(String args[]) {
+		Equation eq = new Equation(2);
+		int cpt = 0;
+		for (double t = 0; t <= 30; t = t + 0.001) {
+			liste.add(new Point(eq.f(t), eq.g(t)));
+			System.out.println(liste.get(cpt).toString());
+			cpt++;
+		}
+		new RenaudTest2();
+	}
+
+	public RenaudTest2() {
 		frame.setTitle("Angry_Bird");
 		frame.setSize(1200, 910);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,7 +39,7 @@ public class RenaudTests extends JFrame {
 		frame.setResizable(false);
 		frame.setContentPane(pan);
 		frame.setVisible(true);
-		int delay = 10; // milliseconds
+		int delay = 1; // milliseconds
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
@@ -38,29 +52,14 @@ public class RenaudTests extends JFrame {
 	}
 
 	private void go() {
-		
-		x = f(t);
-		y = 600-g(t);
+		x = (int)(liste.get(i).getX()*100);
+		y = (int)(600-liste.get(i).getY());
 		pan.setPosX(x);
 		pan.setPosY(y);
 		
 		frame.repaint();
 		repaint();
-		t = t + 1;
-
-
+		i = i + 25;
 	}
 
-	private int f(int t) {
-		return (t*t*t)*10;
-	}
-
-	private int g(int t) {
-		return (int) (Math.sin(t*t*t)*100);
-	}
-
-	public static void main(String[] args) {
-		new RenaudTests();
-
-	}
 }
