@@ -9,9 +9,8 @@ import javax.swing.JFrame;
 
 import modele.Panneau;
 
+public class RenaudTest2 extends JFrame {
 
-public class RenaudTest2 extends JFrame{
-	
 	private Panneau pan = new Panneau();
 
 	JFrame frame = new JFrame();
@@ -20,20 +19,25 @@ public class RenaudTest2 extends JFrame{
 	int y = pan.getPosY();
 	static ArrayList<Point> liste = new ArrayList<>();
 	int i = 0;
-	
+
 	public static void main(String args[]) {
-		Equation eq = new Equation(2);
+		Random rand2 = new Random();
+		int sqrt = rand2.nextInt(3);
+		
+		Equation eq = new Equation(sqrt);
 		int cpt = 0;
 		Random rand = new Random();
-		
-		float k = rand.nextFloat()*4;
+
+		float k = rand.nextFloat() * 3;
 		
 		for (double t = 0; t <= 15; t = t + 0.001) {
-			liste.add(new Point(eq.f(t), eq.g(t,k)));
+			liste.add(new Point(eq.f(t), eq.g(t, k)));
 			System.out.println(liste.get(cpt).toString());
 			cpt++;
 		}
 		new RenaudTest2();
+		System.out.println("sqrt : " + sqrt);
+		System.out.println("coef : " + k);
 	}
 
 	public RenaudTest2() {
@@ -44,7 +48,7 @@ public class RenaudTest2 extends JFrame{
 		frame.setResizable(false);
 		frame.setContentPane(pan);
 		frame.setVisible(true);
-		int delay = 1; // milliseconds
+		int delay = 10; // milliseconds
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
@@ -57,14 +61,16 @@ public class RenaudTest2 extends JFrame{
 	}
 
 	private void go() {
-		x = (int)(liste.get(i).getX()*100);
-		y = (int)(600-liste.get(i).getY());
-		pan.setPosX(x);
-		pan.setPosY(y);
-		
-		frame.repaint();
-		repaint();
-		i = i + 35;
+		if (i < liste.size()) {
+			x = (int) (liste.get(i).getX() * 100);
+			y = (int) (600 - liste.get(i).getY());
+			pan.setPosX(x);
+			pan.setPosY(y);
+
+			frame.repaint();
+			repaint();
+			i = i + 35;
+		}
 	}
 
 }
