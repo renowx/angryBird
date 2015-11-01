@@ -14,7 +14,7 @@ public class Equation {
 	
 	public double g(double t, float k){
 		
-		return k*Math.sin(0.3*t)*200;
+		return k*Math.sin(0.3*t*sqrt)*200;
 		
 	}
 	

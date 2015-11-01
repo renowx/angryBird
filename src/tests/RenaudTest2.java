@@ -22,7 +22,7 @@ public class RenaudTest2 extends JFrame {
 
 	public static void main(String args[]) {
 		Random rand2 = new Random();
-		int sqrt = rand2.nextInt(3);
+		int sqrt = rand2.nextInt(2)+1;
 		
 		Equation eq = new Equation(sqrt);
 		int cpt = 0;
