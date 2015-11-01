@@ -22,14 +22,14 @@ public class RenaudTest2 extends JFrame {
 
 	public static void main(String args[]) {
 		Random rand2 = new Random();
-		int sqrt = rand2.nextInt(2)+1;
-		
+		int sqrt = rand2.nextInt(2) + 1;
+
 		Equation eq = new Equation(sqrt);
 		int cpt = 0;
 		Random rand = new Random();
 
 		float k = rand.nextFloat() * 3;
-		
+
 		for (double t = 0; t <= 15; t = t + 0.001) {
 			liste.add(new Point(eq.f(t), eq.g(t, k)));
 			System.out.println(liste.get(cpt).toString());
@@ -42,7 +42,7 @@ public class RenaudTest2 extends JFrame {
 
 	public RenaudTest2() {
 		frame.setTitle("Angry_Bird");
-		frame.setSize(1200, 910);
+		frame.setSize(1200, 710);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
@@ -61,7 +61,10 @@ public class RenaudTest2 extends JFrame {
 	}
 
 	private void go() {
-		if (i < liste.size()) {
+		if (i < liste.size()
+				&& ((600 - liste.get(i).getY()) <= frame.getHeight())
+				&& ((600 - liste.get(i).getY()) > 0)
+				&& (liste.get(i).getX() < frame.getWidth())) {
 			x = (int) (liste.get(i).getX() * 100);
 			y = (int) (600 - liste.get(i).getY());
 			pan.setPosX(x);
@@ -71,6 +74,7 @@ public class RenaudTest2 extends JFrame {
 			repaint();
 			i = i + 35;
 		}
+
 	}
 
 }
