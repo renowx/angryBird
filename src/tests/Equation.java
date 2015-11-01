@@ -17,9 +17,9 @@ public class Equation {
 		return k*Math.sin(0.3*t*sqrt)*200;
 		
 	}
-	
-	public double derive(double t, float k){
-		return 0.3*Math.cos(0.3*t*sqrt)*200;
+	//calcul de la dérivée
+	public double derivG(double t, float k) {
+		return 60*k*sqrt*Math.cos((3*sqrt*t/10));
 	}
 	
 	public int getSqrt(){
