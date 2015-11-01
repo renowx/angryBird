@@ -1,5 +1,7 @@
 package tests;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,7 +9,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
+import modele.BecTest;
 import modele.Panneau;
 
 public class RenaudTest2 extends JFrame {
@@ -75,10 +79,11 @@ public class RenaudTest2 extends JFrame {
 				&& ((600 - liste.get(i).getY()) > 1)
 				&& (liste.get(i).getX() < this.getWidth() - 25)) {
 			x = (int) (liste.get(i).getX() * 100);
-			y = (int) (600 - liste.get(i).getY());
+			y = (int) (600 - liste.get(i+15).getY());
 			pan.setPosX(x);
 			pan.setPosY(y);
-
+			new BecTest(pan);
+			
 			this.repaint();
 			repaint();
 			i = i + 35;
