@@ -28,7 +28,7 @@ public class RenaudTest2 extends JFrame {
 		int cpt = 0;
 		Random rand = new Random();
 
-		float k = rand.nextFloat() * 3;
+		float k = rand.nextFloat() * 3 + 1;
 
 		for (double t = 0; t <= 15; t = t + 0.001) {
 			liste.add(new Point(eq.f(t), eq.g(t, k)));
@@ -62,9 +62,9 @@ public class RenaudTest2 extends JFrame {
 
 	private void go() {
 		if (i < liste.size()
-				&& ((600 - liste.get(i).getY()) <= frame.getHeight())
-				&& ((600 - liste.get(i).getY()) > 0)
-				&& (liste.get(i).getX() < frame.getWidth())) {
+				&& ((600 - liste.get(i).getY()) <= frame.getHeight()-25)
+				&& ((600 - liste.get(i).getY()) > 1)
+				&& (liste.get(i).getX() < frame.getWidth()-25)) {
 			x = (int) (liste.get(i).getX() * 100);
 			y = (int) (600 - liste.get(i).getY());
 			pan.setPosX(x);
