@@ -35,7 +35,7 @@ public class RenaudTest2 extends JFrame {
 			liste.add(new Point(eq.f(t), eq.g(t, k)));
 			System.out.println(liste.get(cpt).toString());
 			//liste des points du bec
-			listeBec.add(new Point(eq.f(t), eq.derivG(t, k)));
+			listeBec.add(new Point(eq.f(t), eq.derive(t, k)));
 			System.out.println(listeBec.get(cpt).toString());
 			cpt++;
 		}
@@ -73,8 +73,8 @@ public class RenaudTest2 extends JFrame {
 			x = (int) (liste.get(i).getX() * 100);
 			y = (int) (600 - liste.get(i).getY());
 			//mouvement du bec
-			pan.setPosBecX((int) (listeBec.get(i).getX() * 100));
-			pan.setPosBecY((int) (600 - listeBec.get(i).getY()));
+			pan.setPosBecX((int) (x + listeBec.get(i).getX())-60);
+			pan.setPosBecY((int) (y + listeBec.get(i).getY()));
 
 			pan.setPosX(x);
 			pan.setPosY(y);
