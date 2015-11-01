@@ -5,6 +5,7 @@
  */
 package modele;
 
+import java.awt.Color;
 import java.awt.Point;
 
 /**
@@ -19,12 +20,14 @@ public class Obstacle {
     private int y;
     
     private int taille; 
+    private Color couleur;
     
     public Obstacle(int x, int y, int taille){
         System.out.println("création d'un obtacle");
         this.setX(x);
         this.setY(y);
         this.taille=taille;
+        couleur=Color.black;
         
     }
 
@@ -59,13 +62,29 @@ public class Obstacle {
     }
     
     public String toString(){
-        return "x: "+x+" y: "+y+" taille: "+taille;
+        return " x: "+this.getX()+" y: "+this.getY()+" taille: "+this.getTaille()+" couleur:"+this.getCouleur();
         
         
     }
     public Point creationPoint(){
         return new Point(x, y);
     }
+
+    /**
+     * @return the couleur
+     */
+    public Color getCouleur() {
+        return couleur;
+    }
+
+    /**
+     * @param couleur the couleur to set
+     */
+    public void setCouleur(Color couleur) {
+        this.couleur = couleur;
+    }
+    
+   
     
     
 }

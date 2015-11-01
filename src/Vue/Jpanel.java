@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import modele.Modele;
 import modele.Obstacle;
+import modele.Oiseau;
 import tests.Point;
 
 /**
@@ -23,12 +24,13 @@ public class Jpanel extends JPanel {
 
     private Modele modele;
     private Jframe jframe;
-    private int posX = 5;
-	private int posY = 300;
-	private int posXo = 550;
-	private int posYo = 0;
-	private int posXo2 = 650;
-	private int posYo2 = 400;
+    Oiseau oiseau = new Oiseau();
+   // private int posX = 5;
+	//private int posY = 300; // position x de l'oiseau
+	//private int posXo = 550;
+	//private int posYo = 0;
+	//private int posXo2 = 650;
+	//private int posYo2 = 400;
 	private ArrayList<Point> pts;
         
 
@@ -38,6 +40,8 @@ public class Jpanel extends JPanel {
         this.modele = modele;
         this.setVisible(true);
         pts= new ArrayList<Point>();
+        oiseau.setPosX(5);
+        oiseau.setPosY(300);
 
     }
     
@@ -45,20 +49,21 @@ public class Jpanel extends JPanel {
     
     public void paint(Graphics g) {
             // g.setColor(Color.red);
-		g.drawOval(posX, posY, 50, 50);
+		g.drawOval(oiseau.getPosX(), oiseau.getPosY(), 50, 50);
 		//g.drawRect(posXo, posYo, 25, 550);
-		g.drawOval(posXo2, posYo2, 50, 50);
+		//g.drawOval(posXo2, posYo2, 50, 50);
 		
 		/*----Tracage de la trajectoire------*/
 		for (int i=0; i<pts.size();i+=2){
 			g.fillOval((int)pts.get(i).x+2, (int)pts.get(i).y+3, 5, 5);
 		}
-		pts.add(new Point(posX,posY));
+		pts.add(oiseau.creationPoint());
 		// Utilisation de Methode par la suite de type Circle(),
 		// Rectangle() ...
 		// Pour eviter trop de variables de position
             System.out.println("dessiner obstacle");
             dessinerObstacle(g);
+            
         
     }
 
@@ -70,14 +75,15 @@ public class Jpanel extends JPanel {
     public void dessinerObstacle(Graphics g) {
         
         for (Obstacle o : getModele().getListeObstacle()) {
-            System.out.println("postion du x: "+o.getX()+" position du y: "+o.getY()+" taille: "+o.getTaille());
+            System.out.println("postion du x: "+o.getX()+" position du y: "+o.getY()+" taille: "+o.getTaille()+" couleur:"+o.getCouleur());
+            g.setColor(o.getCouleur());
             g.drawOval(o.getX(), o.getY(), o.getTaille(), o.getTaille());
         }
-        this.setBackground(Color.BLUE);
+        //this.setBackground(Color.BLUE);
     }
 
 	
-
+    /*
 	public int getPosXo2() {
 		return posXo2;
 	}
@@ -125,7 +131,7 @@ public class Jpanel extends JPanel {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-
+    */
     /**
      * @return the modele
      */
