@@ -18,6 +18,10 @@ public class Equation {
 		
 	}
 	
+	public double derive(double t, float k){
+		return 0.3*Math.cos(0.3*t*sqrt)*200;
+	}
+	
 	public int getSqrt(){
 		return sqrt;
 	}

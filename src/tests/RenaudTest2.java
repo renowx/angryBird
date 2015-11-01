@@ -18,28 +18,33 @@ public class RenaudTest2 extends JFrame {
 	int x = pan.getPosX();
 	int y = pan.getPosY();
 	static List<Point> liste = new ArrayList<>();
+	static List<Point> liste2 = new ArrayList<>();
+
 	int i = 0;
 
 	public static void main(String args[]) {
 
-		Random rand2 = new Random();
-		int sqrt = rand2.nextInt(2) + 1;
+		Random rand = new Random();
+		int sqrt = rand.nextInt(2) + 1;
 
 		Equation eq = new Equation(sqrt);
 		int cpt = 0;
-		rand2 = new Random();
-
-		float k = rand2.nextFloat() * 3 + 1;
+		rand = new Random();
+		
+		float k = rand.nextFloat() * 3 + 1;
 
 		for (double t = 0; t <= 15; t = t + 0.001) {
 			liste.add(new Point(eq.f(t), eq.g(t, k)));
+			liste2.add(new Point(eq.derive(eq.f(t), k), eq.derive(eq.g(t, k), k)));
 			System.out.println(liste.get(cpt).toString());
+			System.out.println(liste2.get(cpt).toString());
 			cpt++;
 		}
 
 		new RenaudTest2();
 		System.out.println("sqrt : " + sqrt);
 		System.out.println("coef : " + k);
+		
 	}
 
 	public RenaudTest2() {
