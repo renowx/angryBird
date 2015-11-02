@@ -2,7 +2,7 @@ package modele;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-
+import java.awt.Color;
 import javax.swing.JPanel;
 
 import tests.Point;
