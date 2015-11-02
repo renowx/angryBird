@@ -19,6 +19,8 @@ public class Panneau extends JPanel {
 	private int posBecX = 5;
 	private int posBecY = 300;
 	
+	private int pos = 3;
+	
 	private ArrayList<Point> pts = new ArrayList<>();
 
 	public void paintComponent(Graphics g) {
@@ -26,7 +28,7 @@ public class Panneau extends JPanel {
 		// g.setColor(Color.red);
 		g.drawOval(posX, posY, 50, 50);
 		//bec
-		g.drawPolygon(new int[]{posBecX+50, posBecX+50, posBecX+60}, new int[]{posBecY+20, posBecY+30, posBecY+25}, 3);
+		g.drawPolygon(new int[]{posX+50, posX+50, posBecX+60}, new int[]{posY+20, posY+30, posBecY+25}, 3);
 		//g.drawRect(posXo, posYo, 25, 550);
 		g.drawOval(posXo2, posYo2, 50, 50);
 		
@@ -104,6 +106,14 @@ public class Panneau extends JPanel {
 
 	public void setPosBecY(int posBecY) {
 		this.posBecY = posBecY;
+	}
+	
+	public int getPos(){
+		return pos;
+	}
+	
+	public void setPos(int pos){
+		this.pos = pos;
 	}
 	
 }
