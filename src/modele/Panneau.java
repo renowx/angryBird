@@ -19,6 +19,16 @@ public class Panneau extends JPanel {
 	private int posBecX = 5;
 	private int posBecY = 300;
 	
+	private boolean color = false;
+	
+	public boolean isColor() {
+		return color;
+	}
+
+	public void setColor(boolean color) {
+		this.color = color;
+	}
+	
 	private ArrayList<Point> pts = new ArrayList<>();
 
 	public void paintComponent(Graphics g) {
@@ -28,11 +38,16 @@ public class Panneau extends JPanel {
 		//bec
 		g.drawPolygon(new int[]{posBecX+50, posBecX+50, posBecX+60}, new int[]{posBecY+20, posBecY+30, posBecY+25}, 3);
 		//g.drawRect(posXo, posYo, 25, 550);
-		g.drawOval(posXo2, posYo2, 50, 50);
+		//g.drawOval(posXo2, posYo2, 50, 50);
 		
 		/*----Tracage de la trajectoire------*/
 		for (int i=0; i<pts.size();i++){
 			g.fillOval((int)pts.get(i).x+25,(int)pts.get(i).y+25, 5, 5);
+			g.fillOval(posXo2, posYo2, 50, 50);
+
+			if(isColor() == true){
+				g.setColor(Color.red);
+			}
 		}
 		pts.add(new Point(posX,posY));
 		// Utilisation de Methode par la suite de type Circle(),
