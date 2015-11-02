@@ -16,8 +16,15 @@ public class Main {
 
     public static void main(String[] args) {
         
-     new RenaudTest2();
+
+      Jframe jframe=new Jframe();
+      jframe.lancementOiseau();
         
+      //  ValTests test = new ValTests();
+
+    // new RenaudTest2();
+        
+
     }
     
 }
