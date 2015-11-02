@@ -1,29 +1,56 @@
 package tests;
 
-import modele.Panneau;
-import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
-import modele.Oiseau;
+import modele.Panneau;
 
 public class ValTests extends JFrame {
 
 	private Panneau pan = new Panneau();
-	private Oiseau o = new Oiseau();
+
 	JFrame frame = new JFrame();
 	Timer time = new Timer();
-	int x = pan.getPosX(), y = pan.getPosY();
+	int x = pan.getPosX();
+	int y = pan.getPosY();
+	static ArrayList<Point> liste = new ArrayList<>();
+	static ArrayList<Point> listeBec = new ArrayList<>();
+	int i = 0;
+
+	public static void main(String args[]) {
+		Random rand2 = new Random();
+		int sqrt = rand2.nextInt(2) + 1;
+
+		Equation eq = new Equation(sqrt);
+		int cpt = 0;
+		Random rand = new Random();
+
+		float k = rand.nextFloat() * 3 + 1;
+		
+		for (double t = 0; t <= 15; t = t + 0.001) {
+			liste.add(new Point(eq.f(t), eq.g(t, k)));
+			System.out.println(liste.get(cpt).toString());
+			//liste des points du bec
+			listeBec.add(new Point(eq.f(t), eq.derivG(t, k)));
+			System.out.println(listeBec.get(cpt).toString());
+			cpt++;
+		}
+		
+		new ValTests();
+		System.out.println("sqrt : " + sqrt);
+		System.out.println("coef : " + k);
+	}
 
 	public ValTests() {
 		frame.setTitle("Angry_Bird");
-		frame.setSize(1200, 910);
+		frame.setSize(1200, 710);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setContentPane(pan);
 		frame.setVisible(true);
 		int delay = 10; // milliseconds
@@ -39,54 +66,31 @@ public class ValTests extends JFrame {
 	}
 
 	private void go() {
-		int x = pan.getPosX(), y = pan.getPosY();
+		if (i < liste.size()
+				&& ((600 - liste.get(i).getY()) <= frame.getHeight()-25 
+				&& (liste.get(i).getX()) <= frame.getWidth()-25)
+				&& ((600 - liste.get(i).getY()) > 1)
+				&& (liste.get(i).getX() < frame.getWidth()-25)
+				) {
+			if( pan.getPosX() == pan.getPosXo2()-25
+					&& pan.getPosY() == pan.getPosYo2()-25){
+				pan.setColor(true);
+			}
+			x = (int) (liste.get(i).getX() * 100);
+			y = (int) (600 - liste.get(i).getY());
+			//mouvement du bec
+			
+			pan.setPosBecX((int) (listeBec.get(i).getX() * 100));
+			pan.setPosBecY((int) (600 - listeBec.get(i).getY()));
 
-		x = pan.getPosX();
-		y = pan.getPosY();
-		x = x + 2;
-		y = (int) Parabole(x, y);
-		pan.setPosX(x);
-		pan.setPosY(y);
+			pan.setPosX(x);
+			pan.setPosY(y);
 
-		frame.repaint();
-		repaint();
-
-		// Vitesse de deplacement pour les tests passage au Timer par la
-		// suite
-
-		// Arret de l'objet a ameliorer
-		if (x == frame.getWidth() - 100 || y == frame.getWidth() - 100
-				|| x == frame.getHeight() - 100 || y == frame.getHeight() - 100
-				|| (x == pan.getPosXo2() && y == pan.getPosYo2()) || x <= 0
-				|| y <= 0) {
-
-		}
-		if ((x >= pan.getPosXo2() - 25 && y <= pan.getPosYo2() - 25)) {
-
-			x = pan.getPosXo2();
-			y = pan.getPosYo2();
-			x = x + 2;
-			y = (int) Parabole(x, y);
-			pan.setPosXo2(x);
-			pan.setPosYo2(y);
 			frame.repaint();
 			repaint();
+			i = i + 35;
 		}
 
 	}
 
-	// Equation d'une parabole
-	private float Parabole(float x, float y) {
-		y = frame.getHeight() - (float) (-((0.005) * (x * x)) + 4 * x + 2);
-		return y;
-	}
-
-	private double Parabole(double a, double x) {
-		return a * Math.pow(x, 2); // Math.pow(x,2) vaut x2
-	}
-
-	public static void main(String[] args) {
-		new ValTests();
-
-	}
 }
