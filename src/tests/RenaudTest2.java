@@ -9,11 +9,12 @@ import javax.swing.JFrame;
 
 import modele.Panneau;
 
+@SuppressWarnings("serial")
 public class RenaudTest2 extends JFrame {
 
 	private Panneau pan = new Panneau();
 
-	JFrame frame = new JFrame();
+
 	Timer time = new Timer();
 	int x = pan.getPosX();
 	int y = pan.getPosY();
@@ -23,9 +24,9 @@ public class RenaudTest2 extends JFrame {
 
 	public static void main(String args[]) {
 		Random rand2 = new Random();
-		int sqrt = rand2.nextInt(2) + 1;
+		int coef = rand2.nextInt(2) + 1;
 
-		Equation eq = new Equation(sqrt);
+		Equation eq = new Equation(coef);
 		int cpt = 0;
 		Random rand = new Random();
 
@@ -35,24 +36,24 @@ public class RenaudTest2 extends JFrame {
 			liste.add(new Point(eq.f(t), eq.g(t, k)));
 			System.out.println(liste.get(cpt).toString());
 			//liste des points du bec
-			listeBec.add(new Point(eq.f(t), eq.derivG(t, k)));
+			listeBec.add(new Point(eq.f(t), eq.derive(t, k)));
 			System.out.println(listeBec.get(cpt).toString());
 			cpt++;
 		}
 		
 		new RenaudTest2();
-		System.out.println("sqrt : " + sqrt);
-		System.out.println("coef : " + k);
+		System.out.println("coef : " + coef);
+		System.out.println("k : " + k);
 	}
 
 	public RenaudTest2() {
-		frame.setTitle("Angry_Bird");
-		frame.setSize(1200, 710);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
-		frame.setContentPane(pan);
-		frame.setVisible(true);
+		this.setTitle("Angry_Bird");
+		this.setSize(1200, 710);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
+		this.setContentPane(pan);
+		this.setVisible(true);
 		int delay = 10; // milliseconds
 		TimerTask task = new TimerTask() {
 			@Override
@@ -67,19 +68,19 @@ public class RenaudTest2 extends JFrame {
 
 	private void go() {
 		if (i < liste.size()
-				&& ((600 - liste.get(i).getY()) <= frame.getHeight()-25)
+				&& ((600 - liste.get(i).getY()) <= this.getHeight()-25)
 				&& ((600 - liste.get(i).getY()) > 1)
-				&& (liste.get(i).getX() < frame.getWidth()-25)) {
+				&& (liste.get(i).getX() < this.getWidth()-25)) {
 			x = (int) (liste.get(i).getX() * 100);
 			y = (int) (600 - liste.get(i).getY());
 			//mouvement du bec
-			pan.setPosBecX((int) (x + listeBec.get(i).getX()));
-			pan.setPosBecY((int) (y - listeBec.get(i).getY()));
+			pan.setPosBecX((int)(x +listeBec.get(i).getX()));
+			pan.setPosBecY((int)(y -listeBec.get(i).getY()));
 
 			pan.setPosX(x);
 			pan.setPosY(y);
-
-			frame.repaint();
+			
+			this.repaint();
 			repaint();
 			i = i + 35;
 		}
