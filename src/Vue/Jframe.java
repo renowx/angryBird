@@ -21,7 +21,7 @@ import modele.Oiseau;
 
 public class Jframe extends JFrame {
 
-    Jpanel jpanel;
+  
     
     private ArrayList<Point> pts;
     
@@ -50,7 +50,7 @@ public class Jframe extends JFrame {
 		
                 // code pour les obstacles 
         modele = new Modele();
-        jpanel = new Jpanel(this, modele);
+        
        // x =jpanel.getPosX();
        // y= jpanel.getPosY();
         pts= new ArrayList<Point>();

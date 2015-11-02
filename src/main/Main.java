@@ -20,9 +20,9 @@ public class Main {
       Jframe jframe=new Jframe();
       jframe.lancementOiseau();
         
-        ValTests test = new ValTests();
+      //  ValTests test = new ValTests();
 
-     new RenaudTest2();
+    // new RenaudTest2();
         
 
     }
