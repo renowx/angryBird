@@ -76,6 +76,8 @@ public class RenaudTest2 extends JFrame {
 			//mouvement du bec
 			pan.setPosBecX((int)(x +listeBec.get(i).getX()));
 			pan.setPosBecY((int)(y -listeBec.get(i).getY()));
+			pan.setPosBec1X((int) (x + listeBec.get(i).getX()-25));
+			pan.setPosBec2X((int) (x + listeBec.get(i).getX()-50));
 
 			pan.setPosX(x);
 			pan.setPosY(y);
