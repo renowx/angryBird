@@ -2,15 +2,16 @@ package modele;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.awt.Color;
 
 import javax.swing.JPanel;
 
-import tests.Point;
+
 
 public class Panneau extends JPanel {
-
+	private Modele modele = new Modele();
 	private int posX = 5;
 	private int posY = 300;
 	private int posXo = 550;
@@ -26,8 +27,8 @@ public class Panneau extends JPanel {
 	private int posBec2Y = 300;
 
 	private int pos = 3;
-
-	private boolean color = false;
+	int taille = 50;
+	/*private boolean color = false;
 	
 	public boolean isColor() {
 		return color;
@@ -35,12 +36,12 @@ public class Panneau extends JPanel {
 
 	public void setColor(boolean color) {
 		this.color = color;
-	}
+	}*/
 	
 	private ArrayList<Point> pts = new ArrayList<>();
 
 	public void paintComponent(Graphics g) {
-
+		
 		// g.setColor(Color.red);
 		g.drawOval(posX, posY, 50, 50);
 		//becx Haut Bas Droite
@@ -53,17 +54,27 @@ public class Panneau extends JPanel {
 			g.fillOval((int)pts.get(i).x+25,(int)pts.get(i).y+25, 5, 5);
 			g.fillOval(posXo2, posYo2, 50, 50);
 			
-			if(isColor() == true){
-				g.setColor(Color.red);
-			}
+			
 			//g.drawPolygon(new int[]{posX+50, posBec1X+50, posX+60}, new int[]{posY+20, posY+30, posBecY+25}, 3);
 			
 		}
-		pts.add(new Point(posX,posY));
+		pts.add(this.creationPoint());
 		// Utilisation de Methode par la suite de type Circle(),
 		// Rectangle() ...
 		// Pour eviter trop de variables de position
+		System.out.println("dessiner obstacle");
+		dessinerObstacle(g);
 
+	}
+	
+	public void dessinerObstacle(Graphics g) {
+
+		for (Obstacle o : modele.getListeObstacle()) {
+			// System.out.println("postion du x: "+o.getX()+" position du y: "+o.getY()+" taille: "+o.getTaille()+" couleur:"+o.getCouleur());
+			g.setColor(o.getCouleur());
+			g.drawOval(o.getX(), o.getY(), o.getTaille(), o.getTaille());
+		}
+		// this.setBackground(Color.BLUE);
 	}
 
 	public int getPosXo2() {
@@ -169,6 +180,14 @@ public class Panneau extends JPanel {
 
 	public void setPosBec3Y(int posBec3Y) {
 		this.posBec2Y = posBec3Y;
+	}
+	public Point creationPoint() {
+		return new Point(posX, posY);
+		
+	}
+	public int getTaille() {
+		// TODO Auto-generated method stub
+		return this.taille/2;
 	}
 	
 }
