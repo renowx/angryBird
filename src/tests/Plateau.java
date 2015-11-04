@@ -1,12 +1,15 @@
 package tests;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
+
+import modele.Modele;
+import modele.Obstacle;
+import modele.ObstacleTest;
 
 public class Plateau extends JFrame {
 
@@ -16,10 +19,10 @@ public class Plateau extends JFrame {
 	private int posBecY = positionInitY;
 	private static int coef;
 	private static float k;
-	private static double angle;
-	private OiseauTest titi = new OiseauTest(positionInitX, positionInitY, posBecX,
-			posBecY);
-	private ArrayList<Point> pts = new ArrayList<>();
+	private ObstacleTest obs = new ObstacleTest(1000, 200,50);
+	private Modele mod = new Modele();
+	private OiseauTest titi = new OiseauTest(positionInitX, positionInitY,
+			posBecX, posBecY, k);
 
 	Timer time = new Timer();
 	int i = 0;
@@ -33,9 +36,10 @@ public class Plateau extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
+		
 		this.add(titi);
 		this.setVisible(true);
-		int delay = 10; // milliseconds
+		int delay = 10; // millisecond
 
 		TimerTask task = new TimerTask() {
 			@Override
@@ -48,20 +52,21 @@ public class Plateau extends JFrame {
 	}
 
 	public void go() {
-
 		if (i < liste.size()
 				&& ((400 - liste.get(i).getY()) <= this.getHeight() - 50)
 				&& ((400 - liste.get(i).getY()) > 0)
 				&& (liste.get(i).getX() < this.getWidth() - 50)) {
+
 			titi.setPosX((int) (liste.get(i).getX() * 100));
 			titi.setPosY((int) (400 - liste.get(i).getY()));
-			titi.setPosBecX((int) (liste.get(i).getX()) * 100);
-			titi.setPosBecY((int) (400 - liste.get(i).getY()));
+
+			titi.setPosBecX((int) (liste.get(i+50).getX()));
+			titi.setPosBecY((int) (400 - liste.get(i+50).getY()));
 			
 			this.repaint();
 			i = i + 30;
+			dessinerObstacle(this.getGraphics());
 		}
-
 	}
 
 	public static void main(String args[]) {
@@ -80,6 +85,7 @@ public class Plateau extends JFrame {
 		k = (float) 1.26;
 
 		Equation eq = new Equation(coef);
+
 		for (double t = 0; t <= 15; t = t + 0.001) {
 			liste.add(new Point(eq.f(t), eq.g(t, k)));
 			System.out.println(liste.get(cpt).toString());
@@ -113,5 +119,10 @@ public class Plateau extends JFrame {
 	public int getI() {
 		return i;
 	}
+
+	public void dessinerObstacle(Graphics g) {
+		g.drawOval(obs.getPosObX(), obs.getPosObY(), obs.getObTaille(), obs.getObTaille());
+	}
+		// this.setBackground(Color.BLUE);
 
 }

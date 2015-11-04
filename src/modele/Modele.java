@@ -9,6 +9,8 @@ package modele;
 import java.util.ArrayList;
 import java.util.Random;
 
+import tests.OiseauTest;
+
 public class Modele {
 
     private ArrayList<Obstacle> listeObstacle;
@@ -47,20 +49,36 @@ public class Modele {
      * @return l'obctacle dans lequelle l'oiseau est rentrée, null tant que
      * l'oiseau n'est pas rentrée dans un obstacle.
      */
-    public Obstacle oiseauRencontreObstacle(Oiseau o) {
+    public Obstacle oiseauRencontreObstacle(OiseauTest oiseau) {
         int distance = 0; // distance entre l'oiseau et les obstacles
         for (Obstacle obstacle : listeObstacle) {
             //System.out.println("obstacle" + obstacle);
-            if (o != null && obstacle!=null) {
-             distance = (int) o.creationPoint().distance(obstacle.creationPoint()); // calcule de la distance 
+            if (oiseau != null && obstacle!=null) {
+             distance = (int) oiseau.creationPoint().distance(obstacle.creationPoint()); // calcule de la distance 
             
             }
-            if ((o.getTaille() + obstacle.getTaille()/2) > distance) { //car rayon
+            if ((oiseau.getTaille() + obstacle.getTaille()/2) > distance) { //car rayon
                 System.out.println("retourne cette obstacle toruvée: "+obstacle);
                 return obstacle;
             }
         }
         return null;
     }
+
+	public Obstacle oiseauRencontreObstacle(Oiseau oiseau) {
+		int distance = 0; // distance entre l'oiseau et les obstacles
+        for (Obstacle obstacle : listeObstacle) {
+            //System.out.println("obstacle" + obstacle);
+            if (oiseau != null && obstacle!=null) {
+             distance = (int) oiseau.creationPoint().distance(obstacle.creationPoint()); // calcule de la distance 
+            
+            }
+            if ((oiseau.getTaille() + obstacle.getTaille()/2) > distance) { //car rayon
+                System.out.println("retourne cette obstacle toruvée: "+obstacle);
+                return obstacle;
+            }
+        }
+        return null;
+	}
 
 }

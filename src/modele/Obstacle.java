@@ -6,14 +6,17 @@
 package modele;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
+
+import javax.swing.JPanel;
 
 /**
  *0.
  * Classe qui représente les Obstacles dans lequelles l'oiseau peut rentrée.
  * Ajouter une ennum avec rond et carrée pour le livrable 2;
  */
-public class Obstacle {
+public class Obstacle extends JPanel {
     
     private int x;
     
@@ -24,13 +27,16 @@ public class Obstacle {
     
     public Obstacle(int x, int y, int taille){
         System.out.println("création d'un obtacle");
-        this.setX(x);
-        this.setY(y);
-        this.taille=taille;
+        this.x = x;
+        this.y = y;
+        this.taille = taille;
         couleur=Color.black;
-        
     }
-
+    
+    public void paintComponent(Graphics g){
+		g.drawOval(this.x, this.y, this.taille, this.taille);
+    }
+    
 	public int getX() {
 		return x;
 	}
