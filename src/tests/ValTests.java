@@ -74,7 +74,7 @@ public class ValTests extends JFrame {
 				) {
 			if( pan.getPosX() == pan.getPosXo2()-25
 					&& pan.getPosY() == pan.getPosYo2()-25){
-				pan.setColor(true);
+				//pan.setColor(true);
 			}
 			x = (int) (liste.get(i).getX() * 100);
 			y = (int) (600 - liste.get(i).getY());

@@ -11,11 +11,14 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import modele.Modele;
 import modele.Obstacle;
 import modele.Oiseau;
+import modele.Panneau;
 
 public class Jframe extends JFrame {
 
