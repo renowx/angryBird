@@ -189,5 +189,6 @@ public class Panneau extends JPanel {
 		// TODO Auto-generated method stub
 		return this.taille/2;
 	}
+
 	
 }
