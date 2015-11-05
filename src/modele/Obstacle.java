@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  * Classe qui représente les Obstacles dans lequelles l'oiseau peut rentrée.
  * Ajouter une ennum avec rond et carrée pour le livrable 2;
  */
-public class Obstacle extends JPanel {
+public class Obstacle{
     
     private int x;
     
@@ -33,9 +33,7 @@ public class Obstacle extends JPanel {
         couleur=Color.black;
     }
     
-    public void paintComponent(Graphics g){
-		g.drawOval(this.x, this.y, this.taille, this.taille);
-    }
+    
     
 	public int getX() {
 		return x;
