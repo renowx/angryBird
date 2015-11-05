@@ -9,14 +9,12 @@ package modele;
 import java.util.ArrayList;
 import java.util.Random;
 
-import tests.OiseauTest;
-
 public class Modele {
 
     private ArrayList<Obstacle> listeObstacle;
 
     public Modele() {
-        System.out.println("création modele");
+        System.out.println("crÃ©ation modele");
         int nbObstacle = 5;
         int i = 0;
         int taille = 0;
@@ -24,7 +22,7 @@ public class Modele {
         listeObstacle.add(new Obstacle(700, 200, 75));
         while (i != nbObstacle) {
             taille = listeObstacle.size() - 1;
-            listeObstacle.add(new Obstacle(800, (getListeObstacle().get(taille).getY() + 100), 50 + new Random().nextInt(50))); // obstcle située de 100 en dessous de l'obtacle précédant, table variable entre 50 et 100
+            listeObstacle.add(new Obstacle(500, (getListeObstacle().get(taille).getY() + 100), 50 + new Random().nextInt(50))); // obstcle situÃ©e de 100 en dessous de l'obtacle prÃ©cÃ©dant, table variable entre 50 et 100
             i++;
         }
 
@@ -46,39 +44,23 @@ public class Modele {
 
     /**
      *
-     * @return l'obctacle dans lequelle l'oiseau est rentrée, null tant que
-     * l'oiseau n'est pas rentrée dans un obstacle.
+     * @return l'obctacle dans lequelle l'oiseau est rentrÃ©e, null tant que
+     * l'oiseau n'est pas rentrÃ©e dans un obstacle.
      */
-    public Obstacle oiseauRencontreObstacle(OiseauTest oiseau) {
+    public Obstacle oiseauRencontreObstacle(Panneau o) {
         int distance = 0; // distance entre l'oiseau et les obstacles
         for (Obstacle obstacle : listeObstacle) {
             //System.out.println("obstacle" + obstacle);
-            if (oiseau != null && obstacle!=null) {
-             distance = (int) oiseau.creationPoint().distance(obstacle.creationPoint()); // calcule de la distance 
+            if (o != null && obstacle!=null) {
+             distance = (int) o.creationPoint().distance(obstacle.creationPoint()); // calcule de la distance 
             
             }
-            if ((oiseau.getTaille() + obstacle.getTaille()/2) > distance) { //car rayon
-                System.out.println("retourne cette obstacle toruvée: "+obstacle);
+            if ((o.getTaille() + obstacle.getTaille()/2) > distance) { //car rayon
+                System.out.println("retourne cette obstacle toruvÃ©e: "+obstacle);
                 return obstacle;
             }
         }
         return null;
     }
-
-	public Obstacle oiseauRencontreObstacle(Oiseau oiseau) {
-		int distance = 0; // distance entre l'oiseau et les obstacles
-        for (Obstacle obstacle : listeObstacle) {
-            //System.out.println("obstacle" + obstacle);
-            if (oiseau != null && obstacle!=null) {
-             distance = (int) oiseau.creationPoint().distance(obstacle.creationPoint()); // calcule de la distance 
-            
-            }
-            if ((oiseau.getTaille() + obstacle.getTaille()/2) > distance) { //car rayon
-                System.out.println("retourne cette obstacle toruvée: "+obstacle);
-                return obstacle;
-            }
-        }
-        return null;
-	}
 
 }
