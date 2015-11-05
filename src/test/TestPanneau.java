@@ -15,16 +15,16 @@ public class TestPanneau {
 		Panneau pan = new Panneau();
 		assertFalse(pan.pointilleTrace());
 	}
-	
+
 	@Test
 	public void testPointille2() throws InterruptedException {
 		Jeu jeu = new Jeu();
 		Thread.sleep(2000);
 		assertTrue(jeu.getPan().pointilleTrace());
 	}
-	
+
 	@Test
-	public void testGeneObstacle() throws InterruptedException{
+	public void testGeneObstacle() throws InterruptedException {
 		Jeu jeu = new Jeu();
 		Thread.sleep(2000);
 		assertTrue(jeu.getPan().obstacleGene());

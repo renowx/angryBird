@@ -114,15 +114,13 @@ public class Jeu extends JFrame {
 			i = i + 35;
 
 			obstacle = modele.oiseauRencontreObstacle(pan);
-			if (obstacle == null) { // pas de rencontre d'obstacle mais peut
-									// Ãªtre
-				// rencontre du bord
+			if (obstacle == null) { 
 				if (pan.getPosX() == this.getWidth() - 100
 						|| pan.getPosY() == this.getWidth() - 100
 						|| pan.getPosX() == this.getHeight() - 100
 						|| pan.getPosY() == this.getHeight() - 100) {
 					System.out.println("arret de l'objet");
-					// time.cancel();
+					
 					oiseauArret = true;
 					System.exit(0);
 

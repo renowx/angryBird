@@ -63,12 +63,10 @@ public class Panneau extends JPanel {
 	public void dessinerObstacle(Graphics g) {
 
 		for (Obstacle o : modele.getListeObstacle()) {
-			// System.out.println("postion du x: "+o.getX()+" position du y: "+o.getY()+" taille: "+o.getTaille()+" couleur:"+o.getCouleur());
 			g.setColor(o.getCouleur());
 			g.drawOval(o.getX(), o.getY(), o.getTaille(), o.getTaille());
 		}
 		obs = true;
-		// this.setBackground(Color.BLUE);
 	}
 
 	public int getPosXo2() {
@@ -168,21 +166,21 @@ public class Panneau extends JPanel {
 		// TODO Auto-generated method stub
 		return this.taille / 2;
 	}
-	
-	public Modele getModele(){
+
+	public Modele getModele() {
 		return modele;
 	}
-	
-	public boolean pointilleTrace(){
-		if(pointille == true){
+
+	public boolean pointilleTrace() {
+		if (pointille == true) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
-	public boolean obstacleGene(){
-		if (obs == true){
+
+	public boolean obstacleGene() {
+		if (obs == true) {
 			return true;
 		} else {
 			return false;
