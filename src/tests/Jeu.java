@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 
@@ -16,34 +18,34 @@ import modele.Panneau;
 public class Jeu extends JFrame {
 
 	private static Panneau pan = new Panneau();
-	private Modele modele;
 	
-	Timer time = new Timer();
-	int x = pan.getPosX();
-	int y = pan.getPosY();
 	
-	static ArrayList<Point> liste = new ArrayList<>();
-	static ArrayList<Point> listeBec = new ArrayList<>();
-	static ArrayList<Point> listeBecDeriv = new ArrayList<>();
-	static boolean run = false;
+	Timer time;
+	int x;
+	int y;
+	static ArrayList<Point> liste;
+	static ArrayList<Point> listeBec;
+        static boolean run = false;
 	static boolean calc = false;
 	static boolean oiseauAvance = false;
 	static boolean oiseauArret = false;
-	
+        Modele modele;
 	int i = 0;
 
-	public static void main(String args[]) {
-
-		new Jeu();
-
-	}
+	
 
 	public Jeu() {
+            time= new Timer();
+            pan=new Panneau();
+            x=pan.getX();
+            y=pan.getY();
+            liste= new ArrayList<>();
+            listeBec= new ArrayList<>();
 		modele = new Modele();
 		trajet();
 		this.setTitle("Angry_Bird");
 		this.setSize(1200, 710);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setContentPane(pan);
@@ -64,84 +66,111 @@ public class Jeu extends JFrame {
 		
 
 	}
+        
+        public void relancer(){
+            modele= new Modele();
+            liste= new ArrayList<>();
+            listeBec= new ArrayList<>();
+            pan.getPts().clear();
+            trajet();
+           
+            repaint();
+        }
 
 	public static void trajet() {
 		Random rand2 = new Random();
 		int coef = rand2.nextInt(2) + 1;
+
+		Equation eq = new Equation(coef);
 		int cpt = 0;
 		Random rand = new Random();
 
 		float k = rand.nextFloat() * 3 + 1;
-		Equation eq = new Equation(coef, k);
+
 		for (double t = 0; t <= 15; t = t + 0.001) {
-			liste.add(new Point(eq.f(t), eq.g(t)));
+			liste.add(new Point(eq.f(t), eq.g(t, k)));
 			System.out.println(liste.get(cpt).toString());
 			// liste des points du bec
-			listeBec.add(new Point(eq.f(t+0.001*200), eq.g(t+0.001*200)));
-			listeBecDeriv.add(new Point(eq.f(t+0.001*200), eq.tangente(eq.f(t+0.001*75), (t+0.001*75))));
-		
+			listeBec.add(new Point(eq.f(t), eq.derive(t, k)));
 			System.out.println(listeBec.get(cpt).toString());
 			cpt++;
 		}
-		calc = true;
 		System.out.println("coef : " + coef);
 		System.out.println("k : " + k);
+                calc = true;
 	}
 
 	private void go() {
+            pan.setModele(modele);
+            repaint();
+            
 		Obstacle obstacle = null;
 		if (i < liste.size()
 				&& ((600 - liste.get(i).getY()) <= this.getHeight() - 25)
 				&& ((600 - liste.get(i).getY()) > 1)
 				&& (liste.get(i).getX() < this.getWidth() - 25)) {
-			
-			//mouvement de l'oiseau
+                    
+                        //mouvement du bec  
 			x = (int) (liste.get(i).getX() * 100);
 			y = (int) (600 - liste.get(i).getY());
-			
-			//mouvement du bec
-			pan.setPosBecX((int) (listeBec.get(i).getX() * 100));
-			pan.setPosBecY((int) (600 - listeBec.get(i).getY()));
-			pan.setPosBecDX((int) (listeBecDeriv.get(i).getX() * 100));
-			pan.setPosBecDY((int) (600 - listeBecDeriv.get(i).getY()));
-			
+			// mouvement du bec
+			pan.setPosBecX((int) (x + listeBec.get(i).getX()));
+			pan.setPosBecY((int) (y - listeBec.get(i).getY()));
+			pan.setPosBec1X((int) (x + listeBec.get(i).getX() - 25));
+			pan.setPosBec2X((int) (x + listeBec.get(i).getX() - 50));
 
 			pan.setPosX(x);
 			pan.setPosY(y);
-			oiseauAvance = true;
-			this.repaint();
-			repaint();
+
+			//this.repaint();
+			
 			i = i + 35;
 
 			obstacle = modele.oiseauRencontreObstacle(pan);
 			if (obstacle == null) { 
-				if (pan.getPosX() == this.getWidth() - 100
-						|| pan.getPosY() == this.getWidth() - 100
-						|| pan.getPosX() == this.getHeight() - 100
-						|| pan.getPosY() == this.getHeight() - 100) {
-					System.out.println("arret de l'objet");
-					
-					oiseauArret = true;
-					System.exit(0);
+				
 
-				}
-				oiseauArret = true;
+				
 
 			} else {
 				for (Obstacle obs : modele.getListeObstacle()) {
 					if (obs == obstacle) {
-						obs.setCouleur(Color.red);
-						oiseauArret = true;
-						time.cancel();
+                                                oiseauArret = true;
+                                                obstacle.setCouleur(Color.blue);
+                                                time.cancel();
+                                                
+                                            try {
+                                                Thread.sleep(2000);
+                                            } catch (InterruptedException ex) {
+                                                Logger.getLogger(Jeu.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                                 
+                                                this.dispose();
+                                                
+                                              
+                                                break;
+                                                //relancer();
+                                                
+                                               
 					}
 				}
-				System.out.println("obstacle trouvÃ©e");
+				System.out.println("obstacle trouvée");
 			}
-		}
-
+		}else{
+                    oiseauArret = true;
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Jeu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    
+                    time.cancel();
+                    this.dispose();
+                }
+               
 	}
-	
-	public boolean run(){
+        
+        public boolean run(){
 		if (calc == true){
 			return true;
 		} else {
