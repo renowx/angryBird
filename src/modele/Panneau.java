@@ -50,7 +50,11 @@ public class Panneau extends JPanel {
 	private ArrayList<Point> pts = new ArrayList<>();
 
 	public void paintComponent(Graphics g) {
+<<<<<<< Updated upstream
 	g.drawOval(posX, posY, 50, 50);
+=======
+		g.drawOval(posX, posY, 50, 50);
+>>>>>>> Stashed changes
 
 		tmpX = posBecX + 25;
 		tmpY = posBecY + 25;
@@ -70,9 +74,6 @@ public class Panneau extends JPanel {
 		pts.add(this.creationPoint());
 		ptsBec.add(new Point(posBecX, posBecY));
 
-		// Utilisation de Methode par la suite de type Circle(),
-		// Rectangle() ...
-		// Pour eviter trop de variables de position
 		System.out.println("dessiner obstacle");
 		dessinerObstacle(g);
 
@@ -166,6 +167,28 @@ public class Panneau extends JPanel {
 
 	public int getPosBec1X() {
 		return posBec1X;
+<<<<<<< Updated upstream
+	}
+
+	public void setPosBec1X(int posBec1X) {
+		this.posBec1X = posBec1X;
+	}
+
+	public int getPosBec1Y() {
+		return posBec1Y;
+	}
+
+	public void setPosBec1Y(int posBec1Y) {
+		this.posBec1Y = posBec1Y;
+	}
+
+	public int getPosBec2X() {
+		return posBec2X;
+	}
+
+	public void setPosBec2X(int posBec2X) {
+		this.posBec2X = posBec2X;
+=======
 	}
 
 	public void setPosBec1X(int posBec1X) {
@@ -202,6 +225,7 @@ public class Panneau extends JPanel {
 	public int getTaille() {
 		// TODO Auto-generated method stub
 		return this.taille/2;
+>>>>>>> Stashed changes
 	}
         public void setModele(Modele modele){
             this.modele=modele;
@@ -211,5 +235,47 @@ public class Panneau extends JPanel {
         return pts;
     }
 
+<<<<<<< Updated upstream
+	public int getPosBec3Y() {
+		return posBec2Y;
+	}
+
+	public void setPosBec3Y(int posBec3Y) {
+		this.posBec2Y = posBec3Y;
+	}
+	public Point creationPoint() {
+		return new Point(posX, posY);
+		
+=======
+    public int getPosBecDX() {
+		return posBecDX;
+	}
+
+	public void setPosBecDX(int posBecDX) {
+		this.posBecDX = posBecDX;
+	}
+
+	public int getPosBecDY() {
+		return posBecY;
+>>>>>>> Stashed changes
+	}
+	public int getTaille() {
+		// TODO Auto-generated method stub
+		return this.taille/2;
+	}
+        public void setModele(Modele modele){
+            this.modele=modele;
+        }
+
+    public ArrayList<Point> getPts() {
+        return pts;
+    }
+
+<<<<<<< Updated upstream
+=======
+	public void setPosBecDY(int posBecDY) {
+		this.posBecDY = posBecDY;
+	}
+>>>>>>> Stashed changes
 	
 }

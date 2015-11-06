@@ -36,9 +36,7 @@ public class Equation {
 	
 
 	public double g(double t) {
-
 		return k * Math.sin(0.3 * t * coef) * 200;
-
 	}
 
 	public double derive(double t) {
