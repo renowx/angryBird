@@ -1,11 +1,11 @@
-package modele;
+package tests;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import tests.AlexTests;
+import modele.Point;
 
 public class AlexPanneau extends JPanel {
 

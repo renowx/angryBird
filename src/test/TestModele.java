@@ -1,10 +1,9 @@
 package test;
 
 import static org.junit.Assert.assertTrue;
+import modele.Jeu;
 
 import org.junit.Test;
-
-import tests.Jeu;
 
 public class TestModele {
 

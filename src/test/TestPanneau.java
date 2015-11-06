@@ -2,11 +2,10 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import modele.Jeu;
 import modele.Panneau;
 
 import org.junit.Test;
-
-import tests.Jeu;
 
 public class TestPanneau {
 

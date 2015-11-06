@@ -1,6 +1,8 @@
-package modele;
+package tests;
 
 import java.awt.Graphics;
+
+import modele.Panneau;
 
 public class BecTest {
 	

@@ -5,7 +5,6 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
-import modele.BecTest;
 import modele.Oiseau;
 import modele.Panneau;
 

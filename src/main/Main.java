@@ -1,7 +1,7 @@
 
  package main;
 
-import tests.Jeu;
+import modele.Jeu;
 
 public class Main {
 

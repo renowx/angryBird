@@ -1,4 +1,4 @@
-package tests;
+package modele;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -9,12 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JFrame;
-
-import modele.Equation;
-import modele.Modele;
-import modele.Obstacle;
-import modele.Panneau;
-import modele.Point;
 
 @SuppressWarnings("serial")
 public class Jeu extends JFrame {
