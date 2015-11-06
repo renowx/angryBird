@@ -3,13 +3,6 @@
 
 import tests.Jeu;
 
-import Vue.Jframe;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import tests.Jeu;
-import tests.RenaudTest2;
-import tests.ValTests;
-
 public class Main {
 
 

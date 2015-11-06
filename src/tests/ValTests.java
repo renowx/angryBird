@@ -7,7 +7,9 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
+import modele.Equation;
 import modele.Panneau;
+import modele.Point;
 
 public class ValTests extends JFrame {
 

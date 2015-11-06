@@ -1,4 +1,4 @@
-package tests;
+package modele;
 
 public class Point {
 	public double x;

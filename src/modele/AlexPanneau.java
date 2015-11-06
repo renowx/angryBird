@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import tests.AlexTests;
-import tests.Equation;
-import tests.Point;
 
 public class AlexPanneau extends JPanel {
 

@@ -8,53 +8,45 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-
-
 public class Panneau extends JPanel {
-	
+
 	private int posX = 5;
 	private int posY = 300;
 	private int posXo = 550;
 	private int posYo = 0;
 	private int posXo2 = 650;
 	private int posYo2 = 400;
-	
+
 	private int posBecX = 5;
 	private int posBecY = 300;
 	private int posBec1X = 5;
 	private int posBec1Y = 300;
 	private int posBec2X = 5;
 	private int posBec2Y = 300;
-        private int tmpX = 0;
+	private int tmpX = 0;
 	private int tmpY = 0;
 	static boolean pointille = false;
 	static boolean obs = false;
-        private ArrayList<Point> ptsBec = new ArrayList<>();
-       
+	private ArrayList<Point> ptsBec = new ArrayList<>();
+
 	private int posBecDX = 5;
 	private int posBecDY = 300;
-        Modele modele;
+	Modele modele;
 
 	private int pos = 3;
 	int taille = 50;
-	/*private boolean color = false;
-	
-	public boolean isColor() {
-		return color;
-	}
+	/*
+	 * private boolean color = false;
+	 * 
+	 * public boolean isColor() { return color; }
+	 * 
+	 * public void setColor(boolean color) { this.color = color; }
+	 */
 
-	public void setColor(boolean color) {
-		this.color = color;
-	}*/
-	
 	private ArrayList<Point> pts = new ArrayList<>();
 
 	public void paintComponent(Graphics g) {
-<<<<<<< Updated upstream
-	g.drawOval(posX, posY, 50, 50);
-=======
 		g.drawOval(posX, posY, 50, 50);
->>>>>>> Stashed changes
 
 		tmpX = posBecX + 25;
 		tmpY = posBecY + 25;
@@ -78,17 +70,19 @@ public class Panneau extends JPanel {
 		dessinerObstacle(g);
 
 	}
-	
+
 	public void dessinerObstacle(Graphics g) {
-            try{
-            System.out.println("dessiner obstacle panneaux");
-		for (Obstacle o : modele.getListeObstacle()) {
-		System.out.println(o);
-			g.setColor(o.getCouleur());
-			g.drawOval(o.getX(), o.getY(), o.getTaille(), o.getTaille());
+		try {
+			System.out.println("dessiner obstacle panneaux");
+			for (Obstacle o : modele.getListeObstacle()) {
+				System.out.println(o);
+				g.setColor(o.getCouleur());
+				g.drawOval(o.getX(), o.getY(), o.getTaille(), o.getTaille());
+			}
+		} catch (Exception e) {
 		}
-            }catch(Exception e){};
-                
+		;
+		obs = true;
 		// this.setBackground(Color.BLUE);
 	}
 
@@ -136,7 +130,6 @@ public class Panneau extends JPanel {
 		return posY;
 	}
 
-	
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
@@ -156,39 +149,17 @@ public class Panneau extends JPanel {
 	public void setPosBecY(int posBecY) {
 		this.posBecY = posBecY;
 	}
-	
-	public int getPos(){
+
+	public int getPos() {
 		return pos;
 	}
-	
-	public void setPos(int pos){
+
+	public void setPos(int pos) {
 		this.pos = pos;
 	}
 
 	public int getPosBec1X() {
 		return posBec1X;
-<<<<<<< Updated upstream
-	}
-
-	public void setPosBec1X(int posBec1X) {
-		this.posBec1X = posBec1X;
-	}
-
-	public int getPosBec1Y() {
-		return posBec1Y;
-	}
-
-	public void setPosBec1Y(int posBec1Y) {
-		this.posBec1Y = posBec1Y;
-	}
-
-	public int getPosBec2X() {
-		return posBec2X;
-	}
-
-	public void setPosBec2X(int posBec2X) {
-		this.posBec2X = posBec2X;
-=======
 	}
 
 	public void setPosBec1X(int posBec1X) {
@@ -218,36 +189,26 @@ public class Panneau extends JPanel {
 	public void setPosBec3Y(int posBec3Y) {
 		this.posBec2Y = posBec3Y;
 	}
+
 	public Point creationPoint() {
 		return new Point(posX, posY);
-		
+
 	}
+
 	public int getTaille() {
 		// TODO Auto-generated method stub
-		return this.taille/2;
->>>>>>> Stashed changes
-	}
-        public void setModele(Modele modele){
-            this.modele=modele;
-        }
-
-    public ArrayList<Point> getPts() {
-        return pts;
-    }
-
-<<<<<<< Updated upstream
-	public int getPosBec3Y() {
-		return posBec2Y;
+		return this.taille / 2;
 	}
 
-	public void setPosBec3Y(int posBec3Y) {
-		this.posBec2Y = posBec3Y;
+	public void setModele(Modele modele) {
+		this.modele = modele;
 	}
-	public Point creationPoint() {
-		return new Point(posX, posY);
-		
-=======
-    public int getPosBecDX() {
+
+	public ArrayList<Point> getPts() {
+		return pts;
+	}
+
+	public int getPosBecDX() {
 		return posBecDX;
 	}
 
@@ -257,25 +218,30 @@ public class Panneau extends JPanel {
 
 	public int getPosBecDY() {
 		return posBecY;
->>>>>>> Stashed changes
 	}
-	public int getTaille() {
-		// TODO Auto-generated method stub
-		return this.taille/2;
-	}
-        public void setModele(Modele modele){
-            this.modele=modele;
-        }
 
-    public ArrayList<Point> getPts() {
-        return pts;
-    }
-
-<<<<<<< Updated upstream
-=======
 	public void setPosBecDY(int posBecDY) {
 		this.posBecDY = posBecDY;
 	}
->>>>>>> Stashed changes
-	
+
+	public Modele getModele() {
+		return modele;
+	}
+
+	public boolean pointilleTrace() {
+		if(pointille==true){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean obstacleGene() {
+		if (obs==true){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }

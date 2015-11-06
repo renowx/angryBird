@@ -19,7 +19,6 @@ public class TestPanneau {
 	@Test
 	public void testPointille2() throws InterruptedException {
 		Jeu jeu = new Jeu();
-		Thread.sleep(2000);
 		assertTrue(jeu.getPan().pointilleTrace());
 	}
 

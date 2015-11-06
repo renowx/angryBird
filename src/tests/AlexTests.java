@@ -8,7 +8,9 @@ import java.util.TimerTask;
 import javax.swing.JFrame;
 
 import modele.AlexPanneau;
+import modele.Equation;
 import modele.Panneau;
+import modele.Point;
 
 public class AlexTests extends JFrame {
 

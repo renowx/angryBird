@@ -9,8 +9,9 @@ import tests.Jeu;
 public class TestModele {
 
 	@Test
-	public void testCreationModele() {
+	public void testCreationModele() throws InterruptedException {
 		Jeu jeu = new Jeu();
+		Thread.sleep(2000);
 		assertTrue(jeu.getPan().getModele().modeleCree());
 	}
 

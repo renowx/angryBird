@@ -7,9 +7,11 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
+import modele.Equation;
 import modele.Modele;
 import modele.Obstacle;
 import modele.ObstacleTest;
+import modele.Point;
 
 public class Plateau extends JFrame {
 
