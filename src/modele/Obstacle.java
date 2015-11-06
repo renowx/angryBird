@@ -16,7 +16,12 @@ public class Obstacle{
     
     private int taille; 
     private Color couleur;
-    
+    /**
+     * Constructeur d'un obstacle
+     * @param x
+     * @param y
+     * @param taille
+     */
     public Obstacle(int x, int y, int taille){
         System.out.println("création d'un obtacle");
         this.x = x;
@@ -26,19 +31,31 @@ public class Obstacle{
     }
     
     
-    
+    /**
+     * Retourne la position X
+     * @return X
+     */
 	public int getX() {
 		return x;
 	}
-
+	/**
+	 * Modification de la position X
+	 * @param x
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
-
+	/**
+	 * Retourne la position Y
+	 * @return Y
+	 */
 	public int getY() {
 		return y;
 	}
-
+	/**
+	 * Modification de la position Y
+	 * @param y
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
@@ -56,12 +73,18 @@ public class Obstacle{
     public void setTaille(int taille) {
         this.taille = taille;
     }
-    
+    /**
+     * To string de la position de l'obstacle et de ses autres attributs
+     */
     public String toString(){
         return " x: "+this.getX()+" y: "+this.getY()+" taille: "+this.getTaille()+" couleur:"+this.getCouleur();
         
         
     }
+    /**
+     * Création d'un point
+     * @return Point
+     */
     public Point creationPoint(){
         return new Point(x, y);
     }

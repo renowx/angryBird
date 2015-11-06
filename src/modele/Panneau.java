@@ -35,16 +35,10 @@ public class Panneau extends JPanel {
 
 	private int pos = 3;
 	int taille = 50;
-	/*
-	 * private boolean color = false;
-	 * 
-	 * public boolean isColor() { return color; }
-	 * 
-	 * public void setColor(boolean color) { this.color = color; }
-	 */
+	
 
 	private ArrayList<Point> pts = new ArrayList<>();
-
+	
 	public void paintComponent(Graphics g) {
 		g.drawOval(posX, posY, 50, 50);
 
@@ -70,7 +64,10 @@ public class Panneau extends JPanel {
 		dessinerObstacle(g);
 
 	}
-
+	/**
+	 * Dessine la liste des obstacles
+	 * @param g
+	 */
 	public void dessinerObstacle(Graphics g) {
 		try {
 			System.out.println("dessiner obstacle panneaux");
@@ -85,149 +82,258 @@ public class Panneau extends JPanel {
 		obs = true;
 		// this.setBackground(Color.BLUE);
 	}
-
+	/**
+	 * Retourne la position Xo2
+	 * @return
+	 */
 	public int getPosXo2() {
 		return posXo2;
 	}
-
+	/**
+	 * Modification de la position X2
+	 * @param posXo2
+	 */
 	public void setPosXo2(int posXo2) {
 		this.posXo2 = posXo2;
 	}
-
+	/**
+	 * Retourne la position Y2
+	 * @return posYo2
+	 */
 	public int getPosYo2() {
 		return posYo2;
 	}
-
+	/**
+	 * Modification de la position Yo2
+	 * @param posYo2
+	 */
 	public void setPosYo2(int posYo2) {
 		this.posYo2 = posYo2;
 	}
-
+	/**
+	 * Retourne la position Xo
+	 * @return posXo
+	 */
 	public int getPosXo() {
 		return posXo;
 	}
-
+	/**
+	 * Modification de la position Xo
+	 * @param posXo
+	 */
 	public void setPosXo(int posXo) {
 		this.posXo = posXo;
 	}
-
+	/**
+	 * Retourne la position Yo
+	 * @return posYo
+	 */
 	public int getPosYo() {
 		return posYo;
 	}
-
+	/**
+	 * Modification de la position Yo
+	 * @param posYo
+	 */
 	public void setPosYo(int posYo) {
 		this.posYo = posYo;
 	}
-
+	/**
+	 * Modification de la position X
+	 * @return posX
+	 */
 	public int getPosX() {
 		return posX;
 	}
-
+	/**
+	 * Modification de la position X
+	 * @param posX
+	 */
 	public void setPosX(int posX) {
 		this.posX = posX;
 	}
-
+	/**
+	 * Retourne la position Y
+	 * @return posY
+	 */
 	public int getPosY() {
 		return posY;
 	}
-
+	/**
+	 * Modification de la position Y
+	 * @param posY
+	 */
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-
+	/**
+	 * Retourne la position
+	 * @return
+	 */
 	public int getPosBecX() {
 		return posBecX;
 	}
-
+	/**
+	 *  Modification de la position BecX
+	 * @param posBecX
+	 */
 	public void setPosBecX(int posBecX) {
 		this.posBecX = posBecX;
 	}
-
+	/**
+	 * Retourne la position
+	 * @return
+	 */
 	public int getPosBecY() {
 		return posBecY;
 	}
-
+	/**
+	 * Modification de la position
+	 * @param posBecY
+	 */
 	public void setPosBecY(int posBecY) {
 		this.posBecY = posBecY;
 	}
-
+	/**
+	 * Retourne la position
+	 * @return
+	 */
 	public int getPos() {
 		return pos;
 	}
-
+	/**
+	 * Modification de la position
+	 * @param pos
+	 */
 	public void setPos(int pos) {
 		this.pos = pos;
 	}
-
+	/**
+	 * Retourne la position Bec1X
+	 * @return Bec1X
+	 */
 	public int getPosBec1X() {
 		return posBec1X;
 	}
-
+	/**
+	 * Modification de la position
+	 * @param posBec1X
+	 */
 	public void setPosBec1X(int posBec1X) {
 		this.posBec1X = posBec1X;
 	}
-
+	/**
+	 * Retourne la position Bec1X
+	 * @return Bec1X
+	 */
 	public int getPosBec1Y() {
 		return posBec1Y;
 	}
-
+	/**
+	 *  Modification de la position Bec1Y
+	 * @param posBec1Y
+	 */
 	public void setPosBec1Y(int posBec1Y) {
 		this.posBec1Y = posBec1Y;
 	}
-
+	/**
+	 * Retourne la position Bec2X
+	 * @return Bec2X
+	 */
 	public int getPosBec2X() {
 		return posBec2X;
 	}
-
+	/**
+	 * Modification de la position
+	 * @param posBec2X
+	 */
 	public void setPosBec2X(int posBec2X) {
 		this.posBec2X = posBec2X;
 	}
-
+	/**
+	 * Retourne la position Bec3Y
+	 * @return Bec3Y
+	 */
 	public int getPosBec3Y() {
 		return posBec2Y;
 	}
-
+	/**
+	 * Modification de la position Bec3Y
+	 * @param posBec3Y
+	 */
 	public void setPosBec3Y(int posBec3Y) {
 		this.posBec2Y = posBec3Y;
 	}
-
+	
+	/**
+	 * Création d'un point
+	 * @return point
+	 */
 	public Point creationPoint() {
 		return new Point(posX, posY);
 
 	}
-
+	/**
+	 * Retourne la taille
+	 * @return taille
+	 */
 	public int getTaille() {
 		// TODO Auto-generated method stub
 		return this.taille / 2;
 	}
-
+	/**
+	 * Modification du modele
+	 * @param modele
+	 */
 	public void setModele(Modele modele) {
 		this.modele = modele;
 	}
-
+	/**
+	 * Retourne le modele
+	 * @return modele
+	 */
 	public ArrayList<Point> getPts() {
 		return pts;
 	}
-
+	/**
+	 * Retourne la liste des points
+	 * @return pts
+	 */
 	public int getPosBecDX() {
 		return posBecDX;
 	}
-
+	/**
+	 * Modification de la position BecDX
+	 * @param posBecDX
+	 */
 	public void setPosBecDX(int posBecDX) {
 		this.posBecDX = posBecDX;
 	}
-
+	/**
+	 * Retourne la position BecDX
+	 * @return BecDX
+	 */
 	public int getPosBecDY() {
 		return posBecY;
 	}
-
+	/**
+	 * Modification de la position BecY
+	 * @param posBecDY
+	 */
 	public void setPosBecDY(int posBecDY) {
 		this.posBecDY = posBecDY;
 	}
-
+	/**
+	 * Retourne le modele
+	 * @return modele
+	 */
 	public Modele getModele() {
 		return modele;
 	}
-
+	/**
+	 * Retourne true si les pointillés sont tracés
+	 * @return pointille
+	 */
 	public boolean pointilleTrace() {
 		if(pointille==true){
 			return true;
@@ -235,7 +341,10 @@ public class Panneau extends JPanel {
 			return false;
 		}
 	}
-
+	/**
+	 * Retourne true si les obstacles sont générés
+	 * @return obs
+	 */
 	public boolean obstacleGene() {
 		if (obs==true){
 			return true;

@@ -60,7 +60,9 @@ public class Jeu extends JFrame {
 		time.schedule(task, delay, 10);
 
 	}
-
+	/**
+	 * Relance l'animation
+	 */
 	public void relancer() {
 		modele = new Modele();
 		liste = new ArrayList<>();
@@ -70,7 +72,9 @@ public class Jeu extends JFrame {
 		trajet();
 		repaint();
 	}
-
+	/**
+	 * Calcul l'ensemble des points de la courbe ainsi que la dérivée
+	 */
 	public static void trajet() {
 		Random rand2 = new Random();
 		int coef = rand2.nextInt(2) + 1;
@@ -93,7 +97,9 @@ public class Jeu extends JFrame {
 		System.out.println("coef : " + coef);
 		System.out.println("k : " + k);
 	}
-
+	/**
+	 * Animation du déplacement de l'oiseau
+	 */
 	private void go() {
 		pan.setModele(modele);
 		
@@ -161,7 +167,10 @@ public class Jeu extends JFrame {
 		}
 
 	}
-
+	/**
+	 * Retourne true si les calculs sont fait
+	 * @return calc
+	 */
 	public boolean run() {
 		if (calc == true) {
 			return true;
@@ -170,7 +179,10 @@ public class Jeu extends JFrame {
 		}
 
 	}
-
+	/**
+	 * Retourne true si l'oiseau avance
+	 * @return oiseauAvance
+	 */
 	public boolean oiseauAvance() {
 		if (oiseauAvance == true) {
 			return true;
@@ -178,7 +190,10 @@ public class Jeu extends JFrame {
 			return false;
 		}
 	}
-
+	/**
+	 * Retourne true si l'oiseau s'arrete à la fin de l'anim
+	 * @return
+	 */
 	public boolean oiseauArret() {
 		if (oiseauArret == true) {
 			return true;
@@ -186,7 +201,10 @@ public class Jeu extends JFrame {
 			return false;
 		}
 	}
-
+	/**
+	 * Retourne le panneau (oiseau)
+	 * @return pan
+	 */
 	public Panneau getPan() {
 		return pan;
 	}
