@@ -7,7 +7,7 @@ import java.util.Timer;
 
 import javax.swing.JPanel;
 
-import modele.Obstacle;
+import Jalon2.Modele.Obstacle;
 
 public class OiseauTest extends JPanel {
 

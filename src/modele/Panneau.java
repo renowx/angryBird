@@ -1,5 +1,6 @@
 package modele;
 
+import Jalon2.Modele.Obstacle;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;

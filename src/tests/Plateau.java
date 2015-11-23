@@ -8,7 +8,7 @@ import java.util.TimerTask;
 import javax.swing.JFrame;
 
 import modele.Modele;
-import modele.Obstacle;
+import Jalon2.Modele.Obstacle;
 import modele.ObstacleTest;
 
 public class Plateau extends JFrame {

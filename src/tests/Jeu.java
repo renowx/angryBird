@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 import modele.Modele;
-import modele.Obstacle;
+import Jalon2.Modele.Obstacle;
 import modele.Panneau;
 
 @SuppressWarnings("serial")

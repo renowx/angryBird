@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import modele.Modele;
-import modele.Obstacle;
+import Jalon2.Modele.Obstacle;
 import modele.Oiseau;
 import modele.Panneau;
 
