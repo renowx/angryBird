@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 import modele.Equation;
 import modele.Modele;
-import modele.Obstacle;
+import Jalon2.Modele.Obstacle;
 import modele.ObstacleTest;
 import modele.Point;
 

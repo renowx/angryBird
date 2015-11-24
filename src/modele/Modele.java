@@ -6,6 +6,11 @@
  */
 package modele;
 
+<<<<<<< HEAD
+=======
+
+import Jalon2.Modele.Obstacle;
+>>>>>>> origin/master
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
