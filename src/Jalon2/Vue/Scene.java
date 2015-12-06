@@ -8,15 +8,6 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 import Jalon2.Modele.Bird;
-import java.awt.Graphics;
-import java.awt.Point;
-import java.util.ArrayList;
-
-import javax.swing.JFrame;
-
-import Jalon2.Modele.Collision;
-import Jalon2.Modele.ObstacleMod;
-import Jalon2.Modele.Oiseau;
 
 
 

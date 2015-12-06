@@ -9,6 +9,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 import modele.Point;
+import Jalon2.Controlleur.Calculs;
 import Jalon2.Modele.Bird;
 
 public class BirdView extends JPanel implements Observer {
@@ -21,11 +22,11 @@ public class BirdView extends JPanel implements Observer {
 		this.b = b;
 		this.addMouseListener(new MouseAdapter() {
         boolean good = false;
+        Calculs a = new Calculs();
                 @Override
                 public void mousePressed(MouseEvent e) {
                 		if (b.isOn(e.getX(), e.getY())){
                 			pa = new Point(e.getX(), e.getY());
-                			System.out.println(pa.getX() + "," + pa.getY());
                 			good = true;
                 		} else {
                 			System.out.println("Point hors oiseau");
@@ -37,7 +38,8 @@ public class BirdView extends JPanel implements Observer {
                 public void mouseReleased(MouseEvent e) {
                     if (b.readyForFire(e.getX(), e.getY(), pa) && good){
                     	pb = new Point(e.getX(), e.getY());
-                    	System.out.println(pb.getX() + "," + pb.getY());
+                    	double angle = a.angle(pa, pb);
+                    	System.out.println("a :" + (int)pa.getX() + "/" + (int)pa.getY() + " b:" + (int)pb.getX() + "/" + (int)pb.getY() + " angle:" + (int)angle + "°");                 	
                     } else if (b.readyForFire(e.getX(), e.getY(), pa) && !good){
                     	System.out.println("Premier point hors oiseau");
                     } else {
