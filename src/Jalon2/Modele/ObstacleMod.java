@@ -1,4 +1,4 @@
-<<<<<<< HEAD:src/modele/Obstacle.java
+
 package modele;
 
 import java.awt.Color;
@@ -9,7 +9,7 @@ import java.awt.Point;
  * Classe qui représente les Obstacles dans lequelles l'oiseau peut rentrée.
  * Ajouter une ennum avec rond et carrée pour le livrable 2;
  */
-public class Obstacle{
+public class ObstacleMod{
     
     private int x;
     
@@ -23,7 +23,7 @@ public class Obstacle{
      * @param y
      * @param taille
      */
-    public Obstacle(int x, int y, int taille){
+    public ObstacleMod(int x, int y, int taille){
         System.out.println("création d'un obtacle");
         this.x = x;
         this.y = y;
@@ -127,7 +127,7 @@ import javax.swing.JPanel;
  * Classe qui représente les Obstacles dans lequelles l'oiseau peut rentrée.
  * Ajouter une ennum avec rond et carrée pour le livrable 2;
  */
-public class Obstacle{
+public class ObstacleMod{
     
     private int x;
     
@@ -136,7 +136,7 @@ public class Obstacle{
     private int taille; 
     private Color couleur;
     
-    public Obstacle(int x, int y, int taille){
+    public ObstacleMod(int x, int y, int taille){
         System.out.println("création d'un obtacle");
         this.x = x;
         this.y = y;
@@ -203,4 +203,4 @@ public class Obstacle{
     
     
 }
->>>>>>> origin/master:src/Jalon2/Modele/Obstacle.java
+
