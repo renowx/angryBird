@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import modele.Point;
 import Jalon2.Controlleur.Calculs;
+import Jalon2.Controlleur.Moteur;
 import Jalon2.Modele.Bird;
 
 public class BirdView extends JPanel implements Observer {
@@ -21,32 +22,36 @@ public class BirdView extends JPanel implements Observer {
 	public BirdView(Bird b) {
 		this.b = b;
 		this.addMouseListener(new MouseAdapter() {
-        boolean good = false;
-        Calculs a = new Calculs();
-                @Override
-                public void mousePressed(MouseEvent e) {
-                		if (b.isOn(e.getX(), e.getY())){
-                			pa = new Point(e.getX(), e.getY());
-                			good = true;
-                		} else {
-                			System.out.println("Point hors oiseau");
-                		}
-                    
-                }
+			boolean good = false;
+			Calculs a = new Calculs();
 
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    if (b.readyForFire(e.getX(), e.getY(), pa) && good){
-                    	pb = new Point(e.getX(), e.getY());
-                    	double angle = a.angle(pa, pb);
-                    	System.out.println("a :" + (int)pa.getX() + "/" + (int)pa.getY() + " b:" + (int)pb.getX() + "/" + (int)pb.getY() + " angle:" + (int)angle + "°");                 	
-                    } else if (b.readyForFire(e.getX(), e.getY(), pa) && !good){
-                    	System.out.println("Premier point hors oiseau");
-                    } else {
-                    	System.out.println("Points incorrects");
-                    }
-                }
-            });
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if (b.isOn(e.getX(), e.getY())) {
+					pa = new Point(e.getX(), e.getY());
+					good = true;
+				} else {
+					System.out.println("Point hors oiseau");
+				}
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if (b.readyForFire(e.getX(), e.getY(), pa) && good) {
+					pb = new Point(e.getX(), e.getY());
+					double angle = a.angle(pa, pb);
+					System.out.println("a :" + (int) pa.getX() + "/"
+							+ (int) pa.getY() + " b:" + (int) pb.getX() + "/"
+							+ (int) pb.getY() + " angle:" + (int) angle + "°");
+					new Moteur().moteurPhysique((int)angle);
+				} else if (b.readyForFire(e.getX(), e.getY(), pa) && !good) {
+					System.out.println("Premier point hors oiseau");
+				} else {
+					System.out.println("Points incorrects");
+				}
+			}
+		});
 	}
 
 	public void paintComponent(Graphics g) {
@@ -61,4 +66,3 @@ public class BirdView extends JPanel implements Observer {
 	}
 
 }
-
