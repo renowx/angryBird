@@ -8,8 +8,7 @@ public class Moteur {
 
 	private Bird modele;
 
-	public void moteurPhysique(int angle) {
-		double vitesse = 100;
+	public void moteurPhysique(int angle, int vitesse) {
 
 		int pas = 1200;
 		System.out.println();
