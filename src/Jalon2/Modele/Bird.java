@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-import modele.Point;
+import java.awt.Point;
 
 public class Bird extends Observable {
 	private int x;
