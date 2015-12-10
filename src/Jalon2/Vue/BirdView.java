@@ -8,7 +8,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import modele.Point;
+import java.awt.Point;
 import Jalon2.Controlleur.Calculs;
 import Jalon2.Controlleur.Moteur;
 import Jalon2.Modele.Bird;
