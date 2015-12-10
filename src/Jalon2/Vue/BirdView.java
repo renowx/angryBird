@@ -18,7 +18,7 @@ public class BirdView extends JPanel implements Observer {
 	private Bird b;
 	private Point pa;
 	private Point pb;
-
+	private ArrayList<Obstacle> obstacles = new ArrayList<>();
 	public BirdView(Bird b) {
 		this.b = b;
 		this.addMouseListener(new MouseAdapter() {
