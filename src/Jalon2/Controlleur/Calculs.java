@@ -1,6 +1,6 @@
 package Jalon2.Controlleur;
 
-import modele.Point;
+import java.awt.Point;
 
 public class Calculs {
 	
