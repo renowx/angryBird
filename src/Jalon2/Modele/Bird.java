@@ -6,7 +6,7 @@ import java.util.Observable;
 
 import java.awt.Point;
 
-public class Bird extends Observable {
+public class Bird  {
 	private int x;
 	private int y;
 	private int taille;
@@ -27,8 +27,7 @@ public class Bird extends Observable {
 	public void setPosition(int x, int y) {
 		this.setY(y);
 		this.setX(x);
-		setChanged();
-		notifyObservers(this);
+
 	}
 
 	/**
@@ -47,8 +46,7 @@ public class Bird extends Observable {
 	 */
 	public void setY(int y) {
 		this.y = y;
-		setChanged();
-		notifyObservers();
+
 	}
 
 	/**
@@ -67,8 +65,7 @@ public class Bird extends Observable {
 	 */
 	public void setX(int x) {
 		this.x = x;
-		setChanged();
-		notifyObservers();
+
 	}
 
 	/**
@@ -87,8 +84,7 @@ public class Bird extends Observable {
 	 */
 	public void setTaille(int taille) {
 		this.taille = taille;
-		setChanged();
-		notifyObservers();
+
 	}
 
 	public boolean isOn(int x, int y) {
