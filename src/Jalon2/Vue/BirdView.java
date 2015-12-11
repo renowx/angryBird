@@ -22,6 +22,7 @@ public class BirdView extends JPanel implements Observer {
 	private Bird b;
 	private Point pa;
 	private Point pb;
+	ObstacleView ov = new ObstacleView();
 	
 	public BirdView(final Bird b) {
 		this.b = b;
@@ -63,6 +64,7 @@ public class BirdView extends JPanel implements Observer {
 	public void paintComponent(Graphics g) {
 		g.drawOval(b.getX(), b.getY(), b.getTaille(), b.getTaille());
 		System.out.println("Oiseau dessiné !");
+		ov.paintComponent(g);
 	}
 
 	@Override
