@@ -18,7 +18,9 @@ import Jalon2.Modele.Bird;
 public class Scene extends JFrame implements Observer{
     
 	private static Bird b = new Bird(100, 500, 50);
+	public static Scene s;
 	BirdView bView = new BirdView(b);
+	ObstacleView oView = new ObstacleView();
 	
 	public Scene(){
 		this.setTitle("Angry_Bird");
@@ -32,7 +34,7 @@ public class Scene extends JFrame implements Observer{
 	}
 	
 	public static void main(String args[]) {
-		new Scene();
+		s = new Scene();
 	}
 
 	@Override
