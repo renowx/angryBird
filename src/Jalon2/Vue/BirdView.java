@@ -22,6 +22,7 @@ public class BirdView extends JPanel implements Observer {
 	private Bird b;
 	private Point pa;
 	private Point pb;
+	ObstacleView ov = new ObstacleView();
 	
 	public BirdView(final Bird b) {
 		this.b = b;
@@ -49,7 +50,7 @@ public class BirdView extends JPanel implements Observer {
 							+ (int) pa.getY() + " b:" + (int) pb.getX() + "/"
 							+ (int) pb.getY() + " angle:" + (int) angle + "°");
 					int dist = a.distance((int)pa.getX(), (int)pa.getY(), (int)pb.getX(), (int)pb.getY());
-					new Moteur().moteurPhysique((int)angle, dist*2);
+					new Moteur().moteurPhysique((int)angle, (int)(dist*1.5), b);
 				} else if (b.readyForFire(e.getX(), e.getY(), pa) && !good) {
 					System.out.println("Premier point hors oiseau");
 				} else {
@@ -63,6 +64,7 @@ public class BirdView extends JPanel implements Observer {
 	public void paintComponent(Graphics g) {
 		g.drawOval(b.getX(), b.getY(), b.getTaille(), b.getTaille());
 		System.out.println("Oiseau dessiné !");
+		ov.paintComponent(g);
 	}
 
 	@Override
