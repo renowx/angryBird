@@ -14,7 +14,7 @@ public class Collision {
 	Oiseau bird = new Oiseau();
 	private ArrayList<Obstacle> listeObstacle;
 	int nbObstacle;
-	public void listeObstacle() {
+        /**public void listeObstacle() {
 		this.nbObstacle = 5;
         int i = 0;
         int taille = 0;
@@ -27,7 +27,7 @@ public class Collision {
         }
 		
 		
-	}
+	}**/
 	
 	public Obstacle obstColision() {
 		int distance = 0; // distance entre l'oiseau et les obstacles

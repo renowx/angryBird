@@ -8,6 +8,7 @@ package Jalon2.Modele;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.geom.Point2D;
 
 import javax.swing.JPanel;
 
@@ -15,7 +16,7 @@ import javax.swing.JPanel;
  * 0. Classe qui reprÃ©sente les Obstacles dans lequelles l'oiseau peut rentrÃ©e.
  * Ajouter une ennum avec rond et carrÃ©e pour le livrable 2;
  */
-public class Obstacle extends JPanel {
+public class Obstacle{
 
 	private int x;
 
@@ -111,6 +112,11 @@ public class Obstacle extends JPanel {
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
 	}
+
+    Point2D creationPoint() {
+        return new Point(x,y);
+    
+    }
 
 }
 
