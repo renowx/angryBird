@@ -11,7 +11,8 @@ public class MouvementObstacle extends Obstacle{
 	public MouvementObstacle(Point c){
 		super(c);
 	}
-	
+	// théoriquement méthode move x et move y à déplacer dans la classe controlleur, 
+        //mais cela compliquerait les calculs
 	public void moveY(){
 		if(this.limit_y[0] != this.limit_y[1]){
 			if(super.getC().getY() <= this.getLimit_y()[0]){

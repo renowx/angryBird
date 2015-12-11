@@ -8,6 +8,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 import Jalon2.Modele.Bird;
+import Jalon2.Modele.Modele;
 
 
 
@@ -16,13 +17,16 @@ import Jalon2.Modele.Bird;
  * @author ouvryl
  */
 public class Scene extends JFrame implements Observer{
-    
+        Modele modele;
 	private static Bird b = new Bird(100, 500, 50);
 	public static Scene s;
-	BirdView bView = new BirdView(b);
+	BirdView bView;
 	
 	
-	public Scene(){
+	public Scene(Modele modele){
+                bView= new BirdView(b, modele);
+                this.modele=modele;
+            
 		this.setTitle("Angry_Bird");
 		this.setSize(1200, 710);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -34,7 +38,8 @@ public class Scene extends JFrame implements Observer{
 	}
 	
 	public static void main(String args[]) {
-		s = new Scene();
+                Modele modele= new Modele();
+		s = new Scene(modele);
 	}
 
 	@Override

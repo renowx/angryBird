@@ -18,10 +18,7 @@ public class Controlleur {
         
     }
     
-    // vérifie et transmet 
-    public void transmission(String s){
-     
-    }
+    
     
 }
 

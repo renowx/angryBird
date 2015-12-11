@@ -28,12 +28,12 @@ public class Modele extends Observable{
 	MouvementObstacle ob6;
     public Modele(){
                 obstacles = new ArrayList<>();
-            //    ob1 = new Obstacle(new Point(400,100));
+               ob1 = new Obstacle(new Point(400,100));
                 ob2 = new Obstacle(new Point(800,400));
                 ob3 = new MouvementObstacle(new Point(400,200));
                 ob4 = new MouvementObstacle(new Point(700,500));
                 ob5 = new MouvementObstacle(new Point(800,100));
-               // ob6 = new MouvementObstacle(new Point(1000,200));
+               ob6 = new MouvementObstacle(new Point(1000,200));
 		
 		ob1.setActif(false);
 		ob2.setActif(false);
