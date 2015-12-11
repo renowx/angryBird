@@ -62,6 +62,7 @@ public class BirdView extends JPanel implements Observer {
 	}
 
 	public void paintComponent(Graphics g) {
+		g.drawLine(0, 650, Scene.s.getWidth(), 650);
 		g.drawOval(b.getX(), b.getY(), b.getTaille(), b.getTaille());
 		System.out.println("Oiseau dessiné !");
 		ov.paintComponent(g);
