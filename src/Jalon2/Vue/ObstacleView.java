@@ -96,6 +96,13 @@ public class ObstacleView extends JPanel implements Observer {
 		Scene.s.repaint();
 		
 	}
-	
+	public ArrayList<Obstacle> getObstacles() {
+		return obstacles;
+	}
+
+
+	public void setObstacles(ArrayList<Obstacle> obstacles) {
+		this.obstacles = obstacles;
+	}
 	
 }
