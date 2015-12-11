@@ -30,7 +30,7 @@ public class Obstacle extends JPanel {
 	public Obstacle(Point c) {
 		System.out.println("crÃ©ation d'un obtacle");
 		this.c = c;
-		this.taille = taille;
+		this.taille = 50;
 		this.actif = true;
 		couleur = Color.black;
 	}
