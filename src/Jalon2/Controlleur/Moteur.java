@@ -6,11 +6,9 @@ public class Moteur {
 
 	public static final double Gravite = -9.81;
 
-	private Bird modele;
+	public void moteurPhysique(int angle, int vitesse, Bird modele) {
 
-	public void moteurPhysique(int angle, int vitesse) {
-
-		int pas = 1200;
+		int pas = 2000;
 		System.out.println();
 
 		double xVitesse = vitesse * Math.cos(angle);
@@ -19,18 +17,28 @@ public class Moteur {
 		double timeIncrement = totalTime / pas;
 		double xIncrement = xVitesse * timeIncrement;
 
-		double x = 0.0;
+		double x = modele.getX();
 		double y = 0.0;
+		double yinit = modele.getY();
 		double t = 0.0;
 		System.out.println("pas\tx\ty");
-		System.out.println("0\t0.0\t0.0");
 		for (int i = 1; i <= pas; i++) {
-			t += timeIncrement;
-			x += xIncrement;
-			y = yVitesse * t + 0.5 * Gravite * t * t;
-			round2(t);
-			System.out.println(i + "\t" + Math.abs(round2(x)) + "\t" + round2(y) + "\t");
+			if (x < 1200 && y < 710 && y >= 0 && x >= modele.getX()) {
+				t += timeIncrement;
+				x += xIncrement + 1;
+				if ((yinit - yVitesse * t + 0.5 * Gravite * t * t) <= 0) {
+					y = Math.abs(yinit - yVitesse * t + 0.5 * Gravite * t * t);
+				} else {
+					y = yinit - yVitesse * t + 0.5 * Gravite * t * t;
+				}
+
+				round2(t);
+				System.out.println(i + "\t" + Math.abs(round2(x)) + "\t"
+						+ round2(y) + "\t");
+
+			}
 		}
+
 	}
 
 	public static double round2(double n) {

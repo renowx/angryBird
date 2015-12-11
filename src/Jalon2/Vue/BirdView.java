@@ -49,7 +49,7 @@ public class BirdView extends JPanel implements Observer {
 							+ (int) pa.getY() + " b:" + (int) pb.getX() + "/"
 							+ (int) pb.getY() + " angle:" + (int) angle + "°");
 					int dist = a.distance((int)pa.getX(), (int)pa.getY(), (int)pb.getX(), (int)pb.getY());
-					new Moteur().moteurPhysique((int)angle, dist*2);
+					new Moteur().moteurPhysique((int)angle, (int)(dist*1.5), b);
 				} else if (b.readyForFire(e.getX(), e.getY(), pa) && !good) {
 					System.out.println("Premier point hors oiseau");
 				} else {
