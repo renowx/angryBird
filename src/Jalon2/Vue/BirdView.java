@@ -12,6 +12,7 @@ import java.awt.Point;
 import Jalon2.Controlleur.Calculs;
 import Jalon2.Controlleur.Moteur;
 import Jalon2.Modele.Bird;
+import Jalon2.Modele.Modele;
 import Jalon2.Modele.MouvementObstacle;
 import Jalon2.Modele.Obstacle;
 import java.awt.Color;
@@ -22,9 +23,13 @@ public class BirdView extends JPanel implements Observer {
 	private Bird b;
 	private Point pa;
 	private Point pb;
-	ObstacleView ov = new ObstacleView();
+        
+	ObstacleView ov;
+        Modele modele;
 	
-	public BirdView(final Bird b) {
+	public BirdView(final Bird b,Modele modele) {
+            ov=new ObstacleView(modele);
+            this.modele=modele;
 		this.b = b;
 		this.addMouseListener(new MouseAdapter() {
 			boolean good = false;

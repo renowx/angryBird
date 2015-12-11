@@ -19,16 +19,21 @@ import java.util.Observable;
 public class Modele extends Observable{
     Bird bird; // variable qui définit les positions de l'oiseau dans le modèle
     private ArrayList<Obstacle> obstacles; // liste qui définit les obstacles et leur position
-    Obstacle ob1 = new Obstacle(new Point(400,100));
-	Obstacle ob2 = new Obstacle(new Point(800,400));
+        Obstacle ob1;
+	Obstacle ob2;
 	
-	MouvementObstacle ob3 = new MouvementObstacle(new Point(400,200));
-	MouvementObstacle ob4 = new MouvementObstacle(new Point(700,500));
-	MouvementObstacle ob5 = new MouvementObstacle(new Point(800,100));
-	MouvementObstacle ob6 = new MouvementObstacle(new Point(1000,200));
-    
+	MouvementObstacle ob3;
+	MouvementObstacle ob4 ;
+	MouvementObstacle ob5;
+	MouvementObstacle ob6;
     public Modele(){
-    obstacles = new ArrayList<>();
+                obstacles = new ArrayList<>();
+            //    ob1 = new Obstacle(new Point(400,100));
+                ob2 = new Obstacle(new Point(800,400));
+                ob3 = new MouvementObstacle(new Point(400,200));
+                ob4 = new MouvementObstacle(new Point(700,500));
+                ob5 = new MouvementObstacle(new Point(800,100));
+               // ob6 = new MouvementObstacle(new Point(1000,200));
 		
 		ob1.setActif(false);
 		ob2.setActif(false);
@@ -57,5 +62,19 @@ public class Modele extends Observable{
 		obstacles.add(ob5);
 		obstacles.add(ob6);
 }
+
+    /**
+     * @return the obstacles
+     */
+    public ArrayList<Obstacle> getObstacles() {
+        return obstacles;
+    }
+
+    /**
+     * @param obstacles the obstacles to set
+     */
+    public void setObstacles(ArrayList<Obstacle> obstacles) {
+        this.obstacles = obstacles;
+    }
     
 }
