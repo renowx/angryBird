@@ -1,5 +1,6 @@
 package Jalon2.Controlleur;
 
+import Jalon2.Modele.Bird;
 import java.awt.Point;
 
 public class Calculs {
@@ -79,5 +80,7 @@ public class Calculs {
 		//System.out.println("ab :" + distb + " bc :" + distc + " angle radian :" + div + "   " + lol);
 		return lol;
 	}
+        
+       
 }
 

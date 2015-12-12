@@ -122,6 +122,11 @@ public class Bird  {
     public void setVitesse(Vecteur vitesse) {
         this.vitesse = vitesse;
     }
+        @Override
+    public String toString(){
+        return "x:"+x+" y: "+y+"/n"+vitesse;
+        
+    }
 
 }
 

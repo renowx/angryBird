@@ -1,26 +1,21 @@
 
  package main;
 
-import modele.Jeu;
+import Jalon2.Controlleur.Controlleur;
+import Jalon2.Modele.Modele;
+import Jalon2.Vue.Scene;
+import static Jalon2.Vue.Scene.s;
+
 
 public class Main {
 
 
-	public static void main(String[] args) {
-
-		System.out.println("Début");
-		int nbLancer = 0;
-
-		while (nbLancer != 10) {
-			new Jeu();
-
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException ex) {
-			}
-			System.out.println("test");
-			nbLancer++;
-		}
+            	public static void main(String args[]) {
+                Modele modele= new Modele();
+                Controlleur c= new Controlleur(modele);
+                 new Scene(modele,c);
 	}
+        
+
 
 }

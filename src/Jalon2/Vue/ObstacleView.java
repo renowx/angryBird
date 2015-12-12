@@ -21,7 +21,7 @@ public class ObstacleView extends JPanel implements Observer {
 	Modele modele;
 	public ObstacleView(Modele modele){
 	this.modele=modele;	
-		
+	modele.addObserver(this);	
 		
 	}
 	
@@ -32,7 +32,7 @@ public class ObstacleView extends JPanel implements Observer {
                        // au paint component
                        System.out.println("Uptdate obstacle view appelée");
                        repaint();
-		          
+		          System.out.println("Position de l'oiseau: "+modele.getBird());
 
 	}
 	
@@ -63,7 +63,7 @@ public class ObstacleView extends JPanel implements Observer {
 		
 		
 		
-		Scene.s.repaint();
+		//Scene.s.repaint(); mit en commentaire, voir si cela génère des bugs
 		
 	}
 	

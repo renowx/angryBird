@@ -17,7 +17,7 @@ import Jalon2.Modele.Modele;
  * Sera la vue, qui affichera l'oiseau et les obstacles en fonction des données contenues  dans modele.
  * @author ouvryl
  */
-public class Scene extends JFrame implements Observer{
+public class Scene extends JFrame{
         Modele modele;
 	private static Bird b = new Bird(100, 500, 50);
 	public static Scene s;
@@ -38,17 +38,17 @@ public class Scene extends JFrame implements Observer{
 		this.setVisible(true);
 		this.setContentPane(bView);
 		this.setVisible(true);
+                
+                
 	}
 	
 	public static void main(String args[]) {
                 Modele modele= new Modele();
                 Controlleur c= new Controlleur(modele);
 		s = new Scene(modele,c);
+                
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-		
-	}
+	
 	
 }

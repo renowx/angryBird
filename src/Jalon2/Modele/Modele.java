@@ -28,6 +28,8 @@ public class Modele extends Observable{
 	MouvementObstacle ob5;
 	MouvementObstacle ob6;
     public Modele(){
+        
+        // mis en place des obstacles
                 obstacles = new ArrayList<>();
                ob1 = new Obstacle(new Point(400,100));
                 ob2 = new Obstacle(new Point(800,400));
@@ -62,6 +64,9 @@ public class Modele extends Observable{
 		obstacles.add(ob4);	
 		obstacles.add(ob5);
 		obstacles.add(ob6);
+                
+                // mise en place du bird
+                bird= new Bird(500, 700, 50);
 }
 
     /**
