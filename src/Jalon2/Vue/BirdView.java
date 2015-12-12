@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import java.awt.Point;
 import Jalon2.Controlleur.Calculs;
+import Jalon2.Controlleur.Controlleur;
 import Jalon2.Controlleur.Moteur;
 import Jalon2.Modele.Bird;
 import Jalon2.Modele.Modele;
@@ -26,8 +27,11 @@ public class BirdView extends JPanel implements Observer {
         
 	ObstacleView ov;
         Modele modele;
+        Boolean mouseRelease=false;
+        Controlleur controlleur;
 	
-	public BirdView(final Bird b,Modele modele) {
+	public BirdView(final Bird b,Modele modele, Controlleur c) {
+            this.controlleur=c;
             ov=new ObstacleView(modele);
             this.modele=modele;
 		this.b = b;
@@ -43,11 +47,17 @@ public class BirdView extends JPanel implements Observer {
 				} else {
 					System.out.println("Point hors oiseau");
 				}
+                                while(!mouseRelease){
+                                    controlleur.PositionOiseau(b.getX(), b.getY());
+                                    
+                                    
+                                }
 
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
+                                mouseRelease=true;
 				if (b.readyForFire(e.getX(), e.getY(), pa) && good) {
 					pb = new Point(e.getX(), e.getY());
 					double angle = a.angle(pa, pb);
@@ -61,7 +71,11 @@ public class BirdView extends JPanel implements Observer {
 				} else {
 					System.out.println("Points incorrects");
 				}
+                                controlleur.CalculerVecteurVitesse(pa,pb);
 			}
+                        
+                        // teste de cette méthode
+                        
 		});
 		
 	}
@@ -73,9 +87,12 @@ public class BirdView extends JPanel implements Observer {
 		ov.paintComponent(g);
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+	public void update(Observable arg0, Object arg1) {
+                       modele=(Modele)arg0; // car je n'ai pas réussie à passée l'array liste directement 
+                       // au paint component
+                       System.out.println("Uptdate obstacle view appelée");
+                       repaint();
+		          
 
 	}
 	

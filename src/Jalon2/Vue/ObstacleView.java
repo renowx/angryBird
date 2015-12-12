@@ -30,6 +30,7 @@ public class ObstacleView extends JPanel implements Observer {
 	public void update(Observable arg0, Object arg1) {
                        modele=(Modele)arg0; // car je n'ai pas réussie à passée l'array liste directement 
                        // au paint component
+                       System.out.println("Uptdate obstacle view appelée");
                        repaint();
 		          
 

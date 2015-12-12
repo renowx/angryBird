@@ -2,6 +2,7 @@
 
 package Jalon2.Vue;
 
+import Jalon2.Controlleur.Controlleur;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -21,12 +22,14 @@ public class Scene extends JFrame implements Observer{
 	private static Bird b = new Bird(100, 500, 50);
 	public static Scene s;
 	BirdView bView;
+        Controlleur c;
+        
 	
 	
-	public Scene(Modele modele){
-                bView= new BirdView(b, modele);
+	public Scene(Modele modele,Controlleur c){
+                bView= new BirdView(b, modele,c);
                 this.modele=modele;
-            
+                this.c=c;
 		this.setTitle("Angry_Bird");
 		this.setSize(1200, 710);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,7 +42,8 @@ public class Scene extends JFrame implements Observer{
 	
 	public static void main(String args[]) {
                 Modele modele= new Modele();
-		s = new Scene(modele);
+                Controlleur c= new Controlleur(modele);
+		s = new Scene(modele,c);
 	}
 
 	@Override

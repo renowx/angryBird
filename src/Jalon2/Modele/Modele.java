@@ -6,6 +6,7 @@
 
 package Jalon2.Modele;
 
+import Jalon2.Controlleur.Vecteur;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -17,7 +18,7 @@ import java.util.Observable;
  * @author ouvryl
  */
 public class Modele extends Observable{
-    Bird bird; // variable qui définit les positions de l'oiseau dans le modèle
+   private  Bird bird; // variable qui définit les positions de l'oiseau dans le modèle
     private ArrayList<Obstacle> obstacles; // liste qui définit les obstacles et leur position
         Obstacle ob1;
 	Obstacle ob2;
@@ -75,6 +76,37 @@ public class Modele extends Observable{
      */
     public void setObstacles(ArrayList<Obstacle> obstacles) {
         this.obstacles = obstacles;
+    }
+
+    /**
+     * @return the bird
+     */
+    public Bird getBird() {
+        return bird;
+    }
+
+    /**
+     * @param bird the bird to set
+     */
+    public void setBird(Bird bird) {
+        this.bird = bird;
+    }
+    
+    /**
+     * Actualise la postiton du bird
+     * @param x
+     * @param y
+     */
+    public void PositionBird(int x, int y){
+        bird.setX(x);
+        bird.setY(y);
+        setChanged();
+        notifyObservers();
+    }
+
+    public void setVecteurBird(Vecteur vevteurVitesseOiseau) {
+        bird.setVitesse(vevteurVitesseOiseau);
+        // ici pas de set changed car cela n'affecte pas directement la vue.
     }
     
 }

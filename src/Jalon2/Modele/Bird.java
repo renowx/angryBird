@@ -3,13 +3,14 @@ package Jalon2.Modele;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-
+import Jalon2.Controlleur.Vecteur;
 import java.awt.Point;
 
 public class Bird  {
 	private int x;
 	private int y;
 	private int taille;
+        private Vecteur vitesse;
 	private List<Point> listePts = new ArrayList<>();
 
 	public Bird(int posX, int posY, int tailleBird) {
@@ -107,6 +108,20 @@ public class Bird  {
 			return false;
 		}
 	}
+
+    /**
+     * @return the vitesse
+     */
+    public Vecteur getVitesse() {
+        return vitesse;
+    }
+
+    /**
+     * @param vitesse the vitesse to set
+     */
+    public void setVitesse(Vecteur vitesse) {
+        this.vitesse = vitesse;
+    }
 
 }
 
