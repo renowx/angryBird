@@ -117,18 +117,47 @@ public class Modele extends Observable {
 		setChanged();
 		notifyObservers();
 	}
-	
-	public int getX(){
+
+	public int getX() {
 		return bird.getX();
 	}
-	
-	public int getY(){
+
+	public int getY() {
 		return bird.getY();
 	}
 
 	public void setVecteurBird(Vecteur vevteurVitesseOiseau) {
 		bird.setVitesse(vevteurVitesseOiseau);
 		// ici pas de set changed car cela n'affecte pas directement la vue.
+	}
+
+	public boolean collision() {
+		int x = bird.getX();
+		int y = bird.getY();
+		if (estSurObsX(x) && estSurObsY(y))
+			return true;
+		
+		return false;
+	}
+
+	public boolean estSurObsX(int x) {
+		for (int i = 0; i < obstacles.size(); i++) {
+			if ((x >= obstacles.get(i).getX() - obstacles.get(i).getTaille())
+					&& (x <= obstacles.get(i).getX()
+							+ obstacles.get(i).getTaille()))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean estSurObsY(int y) {
+		for (int i = 0; i < obstacles.size(); i++) {
+			if ((y >= obstacles.get(i).getY() - obstacles.get(i).getTaille())
+					&& (y <= obstacles.get(i).getY()
+							+ obstacles.get(i).getTaille()*2))
+				return true;
+		}
+		return false;
 	}
 
 }
