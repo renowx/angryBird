@@ -84,9 +84,9 @@ public class BirdView extends JPanel implements Observer {
 				} else {
 					System.out.println("Points incorrects");
 				}*/
-                                pb = new Point(e.getX(), passageRepereBG(e.getY()));
+                                pb = new Point(e.getX(), (e.getY()));
                                 controlleur.CalculerVecteurVitesse(pa,pb);
-                                controlleur.letsGo();
+                                mouseRelease=true;
 			}
                         
                         // teste de cette méthode
@@ -95,13 +95,15 @@ public class BirdView extends JPanel implements Observer {
 		
 	}
 
+        @Override
 	public void paintComponent(Graphics g) {
 		g.drawLine(0, 650, Scene.s.getWidth(), 650);
-		g.drawOval(b.getX(), b.getY(), b.getTaille(), b.getTaille());
-		System.out.println("Oiseau dessiné !");
-		//ov.paintComponent(g);
+		g.drawOval(modele.getBird().getX(), passageRepereHG(modele.getBird().getY()), modele.getBird().getTaille(), modele.getBird().getTaille());
+		System.out.println("Oiseau dessiné ! pos x:"+modele.getBird().getX()+" pos y:"+modele.getBird().getY());
+		ov.paintComponent(g);
 	}
 
+        @Override
 	public void update(Observable arg0, Object arg1) {
                        modele=(Modele)arg0; // car je n'ai pas réussie à passée l'array liste directement 
                        // au paint component

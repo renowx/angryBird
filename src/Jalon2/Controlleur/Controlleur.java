@@ -12,7 +12,9 @@ import static Jalon2.Controlleur.Transformation.passageRepereHG;
 
 
 /**
- * 
+ * La position de l'oiseau arrive avec le repère en haut à gauche ( SWING) 
+ * elle est changé, en repers en bas à gauche pour faire les calculs, rechangée avec le repère en haut à gauche
+ * et renvoyée au modèle.  
  * @author Ludovic
  */
 public class Controlleur {
@@ -32,11 +34,13 @@ public class Controlleur {
      * @param y la position de l'oiseau
      */
     public void PositionOiseau(int x, int y){
-        modele.PositionBird(x, y);
+        modele.PositionBird(x, (y));
         
     }
 
     public void CalculerVecteurVitesse(Point pa, Point pb) {
+        
+        pb.y=passageRepereBG(pb.y);
         
         System.out.println("pa "+pa+" pb "+pb);
         Vecteur vecteurVitesseOiseau=new Vecteur(pa.x-pb.x, pa.y-pb.y);
@@ -54,7 +58,7 @@ public class Controlleur {
                 b.setY(passageRepereBG(b.getY())); 
                 // attention changement de repère avant d'envoyer les donnée au modèle
             modele.PositionBird(b.getX()+b.getVitesse().getX(),   
-                    passageRepereHG(b.getY()-b.getVitesse().getY()));
+                    (passageRepereHG(b.getY()-b.getVitesse().getY())));
             
             b.getVitesse().setY(b.getVitesse().getY()-10); // valeur de l'apesenteur a voir si il faut la modifier ou non
         }
@@ -66,7 +70,7 @@ public class Controlleur {
      */
     public void letsGo(){
         int i=0; // arrêt en fonction du nombre de point pour le moment
-        while(i<15){
+        while(i<25){
             CalculeNouvellePositionBird();
             System.out.println("1 temps i:"+i);
             try {

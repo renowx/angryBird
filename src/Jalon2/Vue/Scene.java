@@ -10,7 +10,10 @@ import javax.swing.JFrame;
 
 import Jalon2.Modele.Bird;
 import Jalon2.Modele.Modele;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static Jalon2.Controlleur.Transformation.passageRepereBG;
+import static Jalon2.Controlleur.Transformation.passageRepereHG;
 
 
 /**
@@ -43,9 +46,26 @@ public class Scene extends JFrame{
 	}
 	
 	public static void main(String args[]) {
+           
+                
                 Modele modele= new Modele();
                 Controlleur c= new Controlleur(modele);
 		s = new Scene(modele,c);
+                // impossible de lancer letsGo dans la classe mouse relased car cette classe ne rend pas la 
+                // main sur l'affichage. 
+                while(true){
+                    while(!s.bView.mouseRelease){
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+
+                        }
+                    }
+
+                    s.bView.controlleur.letsGo();
+                    s.bView.mouseRelease=false;
+                }
+             
                 
 	}
 
