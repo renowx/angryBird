@@ -13,7 +13,7 @@ import static Jalon2.Controlleur.Transformation.passageRepereHG;
 
 /**
  * La position de l'oiseau arrive avec le repère en haut à gauche ( SWING) 
- * elle est changé, en repers en bas à gauche pour faire les calculs, rechangée avec le repère en haut à gauche
+ * elle est changée, en repères en bas à gauche pour faire les calculs, rechangée avec le repère en haut à gauche
  * et renvoyée au modèle.  
  * @author Ludovic
  */
@@ -26,18 +26,24 @@ public class Controlleur {
         
          
             
-        }
+    }
     
     /**
-     * Fonction utilisée pour voir le déplacement du cercle quand l'utilisateur clique dessus
-     * @param x la postion de l'oiseau
-     * @param y la position de l'oiseau
+     * Fonction utilisée pour voir le déplacement du cercle lorsque l'utilisateur clique dessus
+     * @param int x la postion de l'oiseau
+     * @param int y la position de l'oiseau
      */
     public void PositionOiseau(int x, int y){
         modele.PositionBird(x, (y));
         
     }
 
+    /**
+     * Calcul du vecteur vitesse entre un point A et un point B,
+     * modification direct dans la classe modèle et création d'un Vecteur
+     * @param Point pa, le point A
+     * @param Point pb, le point B 
+     **/
     public void CalculerVecteurVitesse(Point pa, Point pb) {
         
         pb.y=passageRepereBG(pb.y);
@@ -49,10 +55,10 @@ public class Controlleur {
     }
     
     /**
-     *cette Fonction change la position de l'oiseau en fonction de sa dernière position
-     * puis modifie le vecteur vitessse de l'oiseau
+     *cette Fonction change la position de l'oiseau Bird b en fonction de sa dernière position
+     * puis modifie son vecteur vitesse
      * 
-     */
+     **/
     public void CalculeNouvellePositionBird(){
                 Bird b=modele.getBird();
                 b.setY(passageRepereBG(b.getY())); 
@@ -64,9 +70,9 @@ public class Controlleur {
         }
     
     /**
-     * Fonction apellée par mouseRealesed qui répète toutes les x seconde à l'oiseau d'anvencer.
-     * cela permet entre autre de ne pas être géné si l'utilisateur clique pendat que l'oiseu est en vol ; 
-     * cela ne rapelra pa la fonction mouse pressed
+     * Fonction apellée par mouseRealesed qui répète à l'oiseau d'avancer, toutes les x secondes.
+     * Cela permet entre autre de ne pas être gêné si l'utilisateur clique alors que l'oiseau est en vol ; 
+     * (Pas de rappel de la fonction mousePressed)
      */
     public void letsGo(){
         int i=0; // arrêt en fonction du nombre de point pour le moment
