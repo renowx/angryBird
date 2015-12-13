@@ -18,33 +18,41 @@ public class Vecteur {
     }
 
     /**
-     * @return the x
+     * Retourne la valeur de la variable x du Vecteur
+     * @return int
      */
     public int getX() {
         return x;
     }
 
     /**
-     * @param x the x to set
+     * Affecte une valeur à la variable x du Vecteur
+     * @param int x : valeur à affecter
      */
     public void setX(int x) {
         this.x = x;
     }
 
     /**
-     * @return the y
+     * Retourne la valeur de la variable y du Vecteur
+     * @return int
      */
     public int getY() {
         return y;
     }
 
     /**
-     * @param y the y to set
+     * Affecte une valeur à la variable y du Vecteur
+     * @param int y : valeur à affecter
      */
     public void setY(int y) {
         this.y = y;
     }
     
+    /**
+     * Retourne une String contenant la valeur en x et la vitesse en y du vecteur
+     * @return String : int x, int y
+     * 
     @Override
     public String toString(){
         return "vitesse x: "+x+" vitesse y: "+y;
