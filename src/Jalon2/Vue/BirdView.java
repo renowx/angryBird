@@ -33,7 +33,7 @@ public class BirdView extends JPanel implements Observer {
 	Boolean mouseRelease = false;
 	Controlleur controlleur;
 
-	public BirdView(final Bird b, Modele modele, Controlleur c) {
+	public BirdView(final Bird b, final Modele modele, Controlleur c) {
 		this.controlleur = c;
 		ov = new ObstacleView(modele);
 		this.modele = modele;
