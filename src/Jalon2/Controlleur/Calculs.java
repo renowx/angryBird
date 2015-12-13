@@ -18,8 +18,11 @@ public class Calculs {
     double xIncrement = xV * timeIncrement;
 	
 	/**
-	 * Calcul la distance entre 2 points, dont les coordonnees sont passées en parametres
-	 * @param int, int, int, int
+	 * Calcule et renvoie la distance entre 2 points
+	 * @param int x1
+	 * @param int y1
+	 * @param int x2
+	 * @param int y2
 	 * @return int
 	 **/
 	public int distance (int x1, int y1, int x2, int y2){
@@ -28,9 +31,9 @@ public class Calculs {
 	}
 	
 	/**
-	 * Prend un int en parametre pour le renvoyer en double
-	 * @param int
-	 * @return double
+	 * Transforme un int en double
+	 * @param int t
+	 * @return double t
 	 **/
 	public double y(int t){
 		return t;
@@ -38,7 +41,7 @@ public class Calculs {
 	
 	/**
 	 * Effectue un calcul à partir de l'entier t. Renvoie un double
-	 * @param int
+	 * @param int t
 	 * @return double
 	 **/
 	public double yP(int t){
@@ -47,7 +50,9 @@ public class Calculs {
 	
 	/**
 	 * Renvoie un point approximatif de la courbe en affichant les donnees traitees
-	 * @param int, float, int
+	 * @param int x
+	 * @param float y
+	 * @param int t
 	 * @return Point
 	 **/
 	public Point aproxCourbe(int x, float y, int t){
@@ -60,7 +65,7 @@ public class Calculs {
 	
 	/**
 	 * Renvoie le calcul du point n+1
-	 * @param double
+	 * @param double n
 	 * @return double
 	 **/
 	public double round2(double n) {
@@ -69,7 +74,8 @@ public class Calculs {
 	
 	/**
 	 * Calcul l'angle, en radian, entre 2 points
-	 * @param Point, Point
+	 * @param Point a
+	 * @param Point b
 	 * @return double
 	 **/
 	public double angle(Point a, Point b){ 
