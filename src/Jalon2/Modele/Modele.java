@@ -13,8 +13,8 @@ import java.util.Observable;
 
 /**
  * Pour des raison de simplicité au niveau de la vue il y aura seulement la
- * classe mogèle qui extends la classe observable. (pour ne pas avoir à
- * difenricier telle ou telle modèle pour la vue. Coordonée de l'oiseau en
+ * classe modèle qui extends la classe observable. (pour ne pas avoir à
+ * différencier telle ou telle modèle pour la vue. Coordonnée de l'oiseau en
  * repère normale ( hautGauche)
  * 
  * @author ouvryl
@@ -75,40 +75,42 @@ public class Modele extends Observable {
 	}
 
 	/**
-	 * @return the obstacles
+	 * Retourne la liste des obstacles
+	 * @return ArrayList<Obstacle>
 	 */
 	public ArrayList<Obstacle> getObstacles() {
 		return obstacles;
 	}
 
 	/**
-	 * @param obstacles
-	 *            the obstacles to set
-	 */
+	 * Affecte une liste d'obstacles à obstacles
+	 * @param Arraylist<Obstacle>
+	 **/
 	public void setObstacles(ArrayList<Obstacle> obstacles) {
 		this.obstacles = obstacles;
 	}
 
 	/**
-	 * @return the bird
+	 * Retourne l'oiseau
+	 * @return Bird
 	 */
 	public Bird getBird() {
 		return bird;
 	}
 
 	/**
-	 * @param bird
-	 *            the bird to set
-	 */
+	 * Affecte un Bird à bird
+	 * @param Bird bird
+	 **/
 	public void setBird(Bird bird) {
 		this.bird = bird;
 	}
 
 	/**
-	 * Actualise la postiton du bird
+	 * Actualise la postiton de l'oiseau
 	 * 
-	 * @param x
-	 * @param y
+	 * @param int x
+	 * @param int y
 	 */
 	public void PositionBird(int x, int y) {
 		bird.setX(x);
@@ -118,14 +120,26 @@ public class Modele extends Observable {
 		notifyObservers();
 	}
 	
+	/**
+	 * Retourne la valeur de x de l'oiseau
+	 * @return int
+	 **/
 	public int getX(){
 		return bird.getX();
 	}
 	
+	/**
+	 * Retourne la valeur de y de l'oiseau
+	 * @return int
+	 **/
 	public int getY(){
 		return bird.getY();
 	}
-
+	
+	/**
+	 * Affecte un Vecteur vitesse à l'oiseau
+	 * @param Vecteur vevteurVitesseOiseau 
+	 **/
 	public void setVecteurBird(Vecteur vevteurVitesseOiseau) {
 		bird.setVitesse(vevteurVitesseOiseau);
 		// ici pas de set changed car cela n'affecte pas directement la vue.
