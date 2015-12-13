@@ -6,11 +6,13 @@ import Jalon2.Modele.Modele;
 import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static Jalon2.Controlleur.Transformation.passageRepereBG;
+import static Jalon2.Controlleur.Transformation.passageRepereHG;
 
 
 
 /**
- *
+ * 
  * @author Ludovic
  */
 public class Controlleur {
@@ -37,8 +39,8 @@ public class Controlleur {
     public void CalculerVecteurVitesse(Point pa, Point pb) {
         
         System.out.println("pa "+pa+" pb "+pb);
-        Vecteur vevteurVitesseOiseau=new Vecteur(pb.x-pa.x, pb.y-pa.y);
-        modele.setVecteurBird(vevteurVitesseOiseau);
+        Vecteur vecteurVitesseOiseau=new Vecteur(pa.x-pb.x, pa.y-pb.y);
+        modele.setVecteurBird(vecteurVitesseOiseau);
    
     }
     
@@ -49,8 +51,12 @@ public class Controlleur {
      */
     public void CalculeNouvellePositionBird(){
                 Bird b=modele.getBird();
-            modele.PositionBird(b.getX()+b.getVitesse().getX(),   b.getY()+b.getVitesse().getY());
-            b.getVitesse().setY(b.getY()-10); // valeur de l'apesenteur a voir si il faut la modifier ou non
+                b.setY(passageRepereBG(b.getY())); 
+                // attention changement de repère avant d'envoyer les donnée au modèle
+            modele.PositionBird(b.getX()+b.getVitesse().getX(),   
+                    passageRepereHG(b.getY()-b.getVitesse().getY()));
+            
+            b.getVitesse().setY(b.getVitesse().getY()-10); // valeur de l'apesenteur a voir si il faut la modifier ou non
         }
     
     /**
@@ -60,15 +66,15 @@ public class Controlleur {
      */
     public void letsGo(){
         int i=0; // arrêt en fonction du nombre de point pour le moment
-        while(i<100){
+        while(i<15){
             CalculeNouvellePositionBird();
-            System.out.println("1 temps");
+            System.out.println("1 temps i:"+i);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
                 
             }
-            
+            i++;
         }
         
     }

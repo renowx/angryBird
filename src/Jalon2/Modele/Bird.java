@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Observable;
 import Jalon2.Controlleur.Vecteur;
 import java.awt.Point;
+import  Jalon2.Controlleur.Transformation;
 
 public class Bird  {
 	private int x;
@@ -122,9 +123,16 @@ public class Bird  {
     public void setVitesse(Vecteur vitesse) {
         this.vitesse = vitesse;
     }
+    
+    public void setVitesseY(int y){
+        vitesse.setY(y);
+    }
+    public void setVitesseX(int x){
+        vitesse.setX(x);
+    }
         @Override
     public String toString(){
-        return "x:"+x+" y: "+y+"/n"+vitesse;
+        return "x:"+x+" y: "+y+"\n"+vitesse;
         
     }
 

@@ -15,6 +15,7 @@ import java.util.Observable;
  * Pour des raison de simplicité au niveau de la vue 
  * il y aura seulement la classe mogèle qui extends la classe observable.
  * (pour ne pas avoir à difenricier telle ou telle modèle pour la vue. 
+ * Coordonée de l'oiseau en repère normale ( hautGauche)
  * @author ouvryl
  */
 public class Modele extends Observable{
@@ -105,6 +106,7 @@ public class Modele extends Observable{
     public void PositionBird(int x, int y){
         bird.setX(x);
         bird.setY(y);
+  
         setChanged();
         notifyObservers();
     }

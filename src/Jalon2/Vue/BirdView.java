@@ -19,6 +19,10 @@ import Jalon2.Modele.Obstacle;
 import java.awt.Color;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
+import static Jalon2.Controlleur.Transformation.passageRepereBG;
+import static Jalon2.Controlleur.Transformation.passageRepereHG;
+
+
 
 public class BirdView extends JPanel implements Observer {
 
@@ -55,9 +59,9 @@ public class BirdView extends JPanel implements Observer {
 				}
                                     */
                             
-                                    pa = new Point(e.getX(), e.getY());
-                                    controlleur.PositionOiseau(e.getX(), e.getY());
-                                    System.out.println("L'oiseau esy bougé par l'utilisaateur");
+                                    pa = new Point(e.getX(), passageRepereBG(e.getY()));
+                                    controlleur.PositionOiseau(pa.x, pa.y);
+                                    System.out.println("L'oiseau est bougé par l'utilisaateur");
                                     
                                 }
 
@@ -80,7 +84,7 @@ public class BirdView extends JPanel implements Observer {
 				} else {
 					System.out.println("Points incorrects");
 				}*/
-                                pb = new Point(e.getX(), e.getY());
+                                pb = new Point(e.getX(), passageRepereBG(e.getY()));
                                 controlleur.CalculerVecteurVitesse(pa,pb);
                                 controlleur.letsGo();
 			}
@@ -95,14 +99,15 @@ public class BirdView extends JPanel implements Observer {
 		g.drawLine(0, 650, Scene.s.getWidth(), 650);
 		g.drawOval(b.getX(), b.getY(), b.getTaille(), b.getTaille());
 		System.out.println("Oiseau dessiné !");
-		ov.paintComponent(g);
+		//ov.paintComponent(g);
 	}
 
 	public void update(Observable arg0, Object arg1) {
                        modele=(Modele)arg0; // car je n'ai pas réussie à passée l'array liste directement 
                        // au paint component
+                         repaint();
                        System.out.println("Uptdate Bird view appelée");
-                       repaint();
+                     
 		          
 
 	}
