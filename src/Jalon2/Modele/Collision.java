@@ -14,7 +14,7 @@ public class Collision {
 	Oiseau bird = new Oiseau();
 	private ArrayList<Obstacle> listeObstacle;
 	int nbObstacle;
-        /**public void listeObstacle() {
+        /*public void listeObstacle() {
 		this.nbObstacle = 5;
         int i = 0;
         int taille = 0;
@@ -27,8 +27,12 @@ public class Collision {
         }
 		
 		
-	}**/
+	}*/
 	
+	/**
+	 * Retourne l'obstacle rencontré, s'il est rencontré
+	 * @return obstacle
+	 **/
 	public Obstacle obstColision() {
 		int distance = 0; // distance entre l'oiseau et les obstacles
 		for (Obstacle obstacle : listeObstacle) {
@@ -50,16 +54,17 @@ public class Collision {
 	}
 
 	/**
-	 * @return the listeObstacle
-	 */
+	 * Retourne la liste des obstacles
+	 * @return ArrayList<Obstacle>
+	 **/
 	public ArrayList<Obstacle> getListeObstacle() {
 		return listeObstacle;
 	}
 
 	/**
-	 * @param listeObstacle
-	 *            the listeObstacle to set
-	 */
+	 * Affecte une liste d'obstacle à listeObstacle
+	 * @param ArrayList<Obstacle>
+	 **/
 	public void setListeObstacle(ArrayList<Obstacle> listeObstacle) {
 		this.listeObstacle = listeObstacle;
 	}
