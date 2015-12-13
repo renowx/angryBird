@@ -52,7 +52,7 @@ public class Vecteur {
     /**
      * Retourne une String contenant la valeur en x et la vitesse en y du vecteur
      * @return String : int x, int y
-     * 
+     **/ 
     @Override
     public String toString(){
         return "vitesse x: "+x+" vitesse y: "+y;

@@ -2,47 +2,49 @@ package Jalon2.Modele;
 
 import java.awt.Point;
 
-public class MouvementObstacle extends Obstacle{
-	private int[] limit_x = {0,0};
-	private int[] limit_y = {0,0};
+public class MouvementObstacle extends Obstacle {
+	private int[] limit_x = { 0, 0 };
+	private int[] limit_y = { 0, 0 };
 	private boolean goDown = true;
 	private boolean toRight = true;
-	
-	public MouvementObstacle(Point c){
+
+	public MouvementObstacle(Point c) {
 		super(c);
 	}
-	// théoriquement méthode move x et move y à déplacer dans la classe controlleur, 
-        //mais cela compliquerait les calculs
-	public void moveY(){
-		if(this.limit_y[0] != this.limit_y[1]){
-			if(super.getC().getY() <= this.getLimit_y()[0]){
+
+	// théoriquement méthode move x et move y à déplacer dans la classe
+	// controlleur,
+	// mais cela compliquerait les calculs
+	public void moveY() {
+		if (this.limit_y[0] != this.limit_y[1]) {
+			if (super.getC().getY() <= this.getLimit_y()[0]) {
 				goDown = true;
-			}else if(super.getC().getY() >= this.getLimit_y()[1]){
+			} else if (super.getC().getY() >= this.getLimit_y()[1]) {
 				goDown = false;
 			}
 		}
-		
-		if(goDown){
-			super.setC(super.getC().x, super.getC().y+1);
-		}else{
-			super.setC(super.getC().x,  super.getC().y-1);
+
+		if (goDown) {
+			super.setC(super.getC().x, super.getC().y + 1);
+		} else {
+			super.setC(super.getC().x, super.getC().y - 1);
 		}
 	}
-	
-	public void moveX(){
-		if(limit_x[0] != limit_x[1]){
-			if(super.getC().getX() <= this.getLimit_x()[0]){
+
+	public void moveX() {
+		if (limit_x[0] != limit_x[1]) {
+			if (super.getC().getX() <= this.getLimit_x()[0]) {
 				toRight = true;
-			}else if(super.getC().getX() >= this.getLimit_x()[1]){
+			} else if (super.getC().getX() >= this.getLimit_x()[1]) {
 				toRight = false;
 			}
-			
-			if(toRight){
-				super.setC(super.getC().x+1, super.getC().y);
-				//super.setX(super.getX()+1);
-			}else{
-				super.setC(super.getC().x-1, super.getC().y);
-				//super.setX(super.getX()-1);
+
+			if (toRight) {
+				super.setC(super.getC().x + 1, super.getC().y);
+				// super.setX(super.getX()+1);
+			} else {
+				super.setC(super.getC().x - 1, super.getC().y);
+				// super.setX(super.getX()-1);
 			}
 		}
 	}

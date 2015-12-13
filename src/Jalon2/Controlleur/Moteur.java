@@ -1,6 +1,6 @@
 package Jalon2.Controlleur;
 
-import Jalon2.Modele.Bird;
+import Jalon2.Modele.Modele;
 
 public class Moteur {
 
@@ -12,7 +12,7 @@ public class Moteur {
 	 * @param int vitesse
 	 * @param Bird modele
 	 **/
-	public void moteurPhysique(int angle, int vitesse, Bird modele) {
+	public void moteurPhysique(int angle, int vitesse, Modele modele) {
 
 		int pas = 2000;
 		System.out.println();
@@ -41,6 +41,7 @@ public class Moteur {
 				round2(t);
 				System.out.println(i + "\t" + Math.abs(round2(x)) + "\t"
 						+ round2(y) + "\t");
+				modele.PositionBird((int)Math.abs(round2(x)), (int)round2(y));
 
 			}
 		}
