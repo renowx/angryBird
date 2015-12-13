@@ -5,7 +5,13 @@ import Jalon2.Modele.Bird;
 public class Moteur {
 
 	public static final double Gravite = -9.81;
-
+	
+	/**
+	 * Fonction de gestion du moteur physique, gérant la vitesse, l'angle lors de l'instant t, de l'oiseau
+	 * @param int angle
+	 * @param int vitesse
+	 * @param Bird modele
+	 **/
 	public void moteurPhysique(int angle, int vitesse, Bird modele) {
 
 		int pas = 2000;
@@ -41,6 +47,11 @@ public class Moteur {
 
 	}
 
+	/**
+	 * Calcul du point n+1
+	 * @param double n
+	 * @return double
+	 **/
 	public static double round2(double n) {
 		return (int) (n * 100.0 + 0.5) / 100.0;
 	}
