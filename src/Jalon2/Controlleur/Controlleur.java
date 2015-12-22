@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static Jalon2.Controlleur.Transformation.passageRepereBG;
 import static Jalon2.Controlleur.Transformation.passageRepereHG;
+import Jalon2.Modele.Obstacle;
 
 
 
@@ -19,11 +20,13 @@ import static Jalon2.Controlleur.Transformation.passageRepereHG;
  */
 public class Controlleur {
     Modele modele;
-  
+    Collision collision; 
+    Obstacle o; // représente l'obstacle que recontre l'oiseau.
     
     public Controlleur(Modele modele){
         this.modele=modele;
-        
+        o=null;
+        collision= new Collision(modele);
          
             
     }
@@ -76,11 +79,23 @@ public class Controlleur {
      */
     public void letsGo(){
         int i=0; // arrêt en fonction du nombre de point pour le moment
-        while(i<25){
+        o=null;
+        while(o==null){
             CalculeNouvellePositionBird();
+             o= collision.obstColision();
+            
             System.out.println("1 temps i:"+i);
+            if(o!=null){
+                
+                try {
+                    Thread.sleep(4800);//pause de 5s ;
+                } catch (InterruptedException ex) {
+
+                }
+                
+            }
             try {
-                Thread.sleep(100);
+                Thread.sleep(100); // nouvelle postition toutes les 100 miliseconde
             } catch (InterruptedException ex) {
                 
             }

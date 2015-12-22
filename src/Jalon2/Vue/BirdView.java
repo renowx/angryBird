@@ -90,6 +90,11 @@ public class BirdView extends JPanel implements Observer {
 
 	@Override
 	public void paintComponent(Graphics g) {
+                        System.out.println("avant écran blanc");
+                g.setColor(Color.WHITE);
+		g.fillRect(0, 0, 1200, 700);
+                System.out.println("après écran blan");
+                 g.setColor(Color.BLACK);
 		g.drawLine(0, 650, Scene.s.getWidth(), 650);
 		g.drawOval(modele.getBird().getX(), passageRepereHG(modele.getBird()
 				.getY()), modele.getBird().getTaille(), modele.getBird()

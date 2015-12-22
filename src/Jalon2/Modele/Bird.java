@@ -2,10 +2,9 @@ package Jalon2.Modele;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import Jalon2.Controlleur.Vecteur;
 import java.awt.Point;
-import  Jalon2.Controlleur.Transformation;
+import java.awt.geom.Point2D;
 
 public class Bird  {
 	private int x;
@@ -151,6 +150,15 @@ public class Bird  {
      **/
     public void setVitesseX(int x){
         vitesse.setX(x);
+    }
+    
+    /**
+     * Retourne la distance entre l'obstcle et l'oiseau
+     * @param o l'obstacle
+     * @return la distance entre l'obstacle et l'oiseau
+     */
+    public int distanceObstacle(Obstacle o){
+      return (int) new Point(x,y).distance(new Point(o.getX(),o.getY()));
     }
     
     /**

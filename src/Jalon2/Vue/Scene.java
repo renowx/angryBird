@@ -24,7 +24,7 @@ public class Scene extends JFrame{
         Modele modele;
 	private static Bird b = new Bird(100, 500, 50);
 	public static Scene s;
-	BirdView bView;
+	public BirdView bView;
         Controlleur c;
         
 	
@@ -53,7 +53,7 @@ public class Scene extends JFrame{
 		s = new Scene(modele,c);
                 // impossible de lancer letsGo dans la classe mouse relased car cette classe ne rend pas la 
                 // main sur l'affichage. 
-                while(true){
+                for(int i=0; i<5; i++){
                     while(!s.bView.mouseRelease){
                         try {
                             Thread.sleep(100);
