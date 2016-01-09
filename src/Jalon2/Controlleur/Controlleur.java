@@ -13,14 +13,13 @@ import static Jalon2.Controlleur.Transformation.passageRepereHG;
  * est changée, en repères en bas à gauche pour faire les calculs, rechangée
  * avec le repère en haut à gauche et renvoyée au modèle.
  * 
- * @author Ludovic
  */
+
 public class Controlleur {
 	Modele modele;
 
 	public Controlleur(Modele modele) {
 		this.modele = modele;
-
 	}
 
 	/**
@@ -82,7 +81,7 @@ public class Controlleur {
 	 */
 	public void letsGo() {
 		int i = 0; // arrêt en fonction du nombre de point pour le moment
-		while (i < 25) {
+		while (i < 50) {
 			if (modele.collision()) {
 				break;
 			} else {

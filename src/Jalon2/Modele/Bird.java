@@ -8,8 +8,8 @@ import java.awt.Point;
 import  Jalon2.Controlleur.Transformation;
 
 public class Bird  {
-	private int x;
-	private int y;
+	private int x = 150;
+	private int y = 510;
 	private int taille;
         private Vecteur vitesse;
 	private List<Point> listePts = new ArrayList<>();

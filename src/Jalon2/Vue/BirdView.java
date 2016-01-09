@@ -56,7 +56,7 @@ public class BirdView extends JPanel implements Observer {
 
 				pa = new Point(e.getX(), passageRepereBG(e.getY()));
 				controlleur.PositionOiseau(pa.x, pa.y);
-				System.out.println("L'oiseau est bougé par l'utilisaateur");
+				System.out.println("L'oiseau est bougé par l'utilisateur");
 
 			}
 

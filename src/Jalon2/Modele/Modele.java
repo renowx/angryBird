@@ -20,7 +20,7 @@ import java.util.Observable;
  * @author ouvryl
  */
 public class Modele extends Observable {
-	private Bird bird; // variable qui définit les positions de l'oiseau dans le
+	private Bird bird = new Bird(150, 510, 50); // variable qui définit les positions de l'oiseau dans le
 						// modèle
 	private ArrayList<Obstacle> obstacles; // liste qui définit les obstacles et
 											// leur position
@@ -134,8 +134,10 @@ public class Modele extends Observable {
 	public boolean collision() {
 		int x = bird.getX();
 		int y = bird.getY();
-		if (estSurObsX(x) && estSurObsY(y))
+		if (estSurObsX(x) && estSurObsY(y)){
+			System.out.println("collision !!!!");
 			return true;
+		}
 		
 		return false;
 	}
@@ -144,8 +146,10 @@ public class Modele extends Observable {
 		for (int i = 0; i < obstacles.size(); i++) {
 			if ((x >= obstacles.get(i).getX() - obstacles.get(i).getTaille())
 					&& (x <= obstacles.get(i).getX()
-							+ obstacles.get(i).getTaille()))
+							+ obstacles.get(i).getTaille())){
+				System.out.println("est Sur ObsX");
 				return true;
+			}
 		}
 		return false;
 	}
@@ -154,8 +158,10 @@ public class Modele extends Observable {
 		for (int i = 0; i < obstacles.size(); i++) {
 			if ((y >= obstacles.get(i).getY() - obstacles.get(i).getTaille())
 					&& (y <= obstacles.get(i).getY()
-							+ obstacles.get(i).getTaille()*2))
+							+ obstacles.get(i).getTaille()*2)){
+				System.out.println("est Sur ObsY");
 				return true;
+			}
 		}
 		return false;
 	}
