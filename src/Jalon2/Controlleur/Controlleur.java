@@ -81,19 +81,15 @@ public class Controlleur {
 	 */
 	public void letsGo() {
 		int i = 0; // arrêt en fonction du nombre de point pour le moment
-		while (i < 50) {
-			if (modele.collision()) {
-				break;
-			} else {
-				CalculeNouvellePositionBird();
-				System.out.println("1 temps i:" + i);
-				try {
-					Thread.sleep(50);
-				} catch (InterruptedException ex) {
+		while (i < 50 && !modele.collision()) {
+			CalculeNouvellePositionBird();
+			System.out.println("1 temps i:" + i);
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException ex) {
 
-				}
-				i++;
 			}
+			i++;
 		}
 
 	}

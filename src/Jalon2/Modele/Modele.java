@@ -20,7 +20,7 @@ import java.util.Observable;
  * @author ouvryl
  */
 public class Modele extends Observable {
-	private Bird bird = new Bird(150, 510, 50); // variable qui définit les positions de l'oiseau dans le
+	private Bird bird; // variable qui définit les positions de l'oiseau dans le
 						// modèle
 	private ArrayList<Obstacle> obstacles; // liste qui définit les obstacles et
 											// leur position

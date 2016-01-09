@@ -14,8 +14,8 @@ import Jalon2.Modele.Modele;
  */
 public class Scene extends JFrame {
 	Modele modele;
-	private static Bird b = new Bird(100, 500, 50);
-	public static Scene s;
+	private Bird b = new Bird(100, 500, 50);
+	static Scene s;
 	BirdView bView;
 	Controlleur c;
 
@@ -43,22 +43,25 @@ public class Scene extends JFrame {
 		// classe ne rend pas la
 		// main sur l'affichage.
 		while (true) {
-
-			if (s.bView.mouseRelease) {
-				s.bView.controlleur.letsGo();
-				//s.bView.mouseRelease = false;
-			}
-
-			while (!s.bView.mouseRelease) {
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException ex) {
-
+			if (!modele.collision()) {
+				if (s.bView.mouseRelease) {
+					s.bView.controlleur.letsGo();
+					// s.bView.mouseRelease = false;
 				}
-			}
 
-			s.bView.controlleur.letsGo();
-			//s.bView.mouseRelease = false;
+				while (!s.bView.mouseRelease) {
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException ex) {
+
+					}
+				}
+
+				s.bView.controlleur.letsGo();
+				// s.bView.mouseRelease = false;
+			} else {
+				break;
+			}
 		}
 
 	}
