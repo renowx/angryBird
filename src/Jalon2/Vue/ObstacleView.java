@@ -37,7 +37,7 @@ public class ObstacleView extends JPanel implements Observer {
 	}
 	
 	public void paintComponent(Graphics g) {
-		
+
 		//System.out.println(ob1.getC().x+" "+ob1.getC().y+" "+ob1.getTaille()+" "+ob1.getTaille());
 		for (Obstacle o : modele.getObstacles()) {
 

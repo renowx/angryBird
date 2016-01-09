@@ -12,6 +12,7 @@ import Jalon2.Modele.Modele;
  * 
  * @author ouvryl
  */
+<<<<<<< HEAD
 public class Scene extends JFrame {
 	Modele modele;
 	private Bird b = new Bird(100, 500, 50);
@@ -23,6 +24,21 @@ public class Scene extends JFrame {
 		bView = new BirdView(b, modele, c);
 		this.modele = modele;
 		this.c = c;
+=======
+public class Scene extends JFrame{
+        Modele modele;
+	private static Bird b = new Bird(100, 500, 50);
+	public static Scene s;
+	public BirdView bView;
+        Controlleur c;
+        
+	
+	
+	public Scene(Modele modele,Controlleur c){
+                bView= new BirdView(b, modele,c);
+                this.modele=modele;
+                this.c=c;
+>>>>>>> origin/master
 		this.setTitle("Angry_Bird");
 		this.setSize(1200, 710);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,6 +51,21 @@ public class Scene extends JFrame {
 	}
 
 	public static void main(String args[]) {
+<<<<<<< HEAD
+=======
+           
+                
+                Modele modele= new Modele();
+                Controlleur c= new Controlleur(modele);
+		s = new Scene(modele,c);
+                // impossible de lancer letsGo dans la classe mouse relased car cette classe ne rend pas la 
+                // main sur l'affichage. 
+                for(int i=0; i<5; i++){
+                    while(!s.bView.mouseRelease){
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+>>>>>>> origin/master
 
 		Modele modele = new Modele();
 		Controlleur c = new Controlleur(modele);
