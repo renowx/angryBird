@@ -10,24 +10,14 @@ import java.util.Random;
  */
 public class Collision {
 
-	Oiseau bird = new Oiseau();
-	private ArrayList<Obstacle> listeObstacle;
-	int nbObstacle;
+	Modele modele;
+	Bird bird = modele.getBird();
+	
+	ArrayList<Obstacle> listeObstacle = modele.getObstacles();
 
-	/**
-	 * public void listeObstacle() { this.nbObstacle = 5; int i = 0; int taille
-	 * = 0; listeObstacle = new ArrayList<Obstacle>(); listeObstacle.add(new
-	 * Obstacle(700, 200, 75)); while (i != nbObstacle) { taille =
-	 * listeObstacle.size() - 1; listeObstacle.add(new Obstacle(500,
-	 * (getListeObstacle().get(taille).getY() + 100), 50 + new
-	 * Random().nextInt(50))); // obstcle situÃ©e de 100 en dessous de l'obtacle
-	 * prÃ©cÃ©dant, table variable entre 50 et 100 i++; }
-	 * 
-	 * 
-	 * }
-	 **/
 
-	public Obstacle obstColision() {
+
+/*	public Obstacle obstColision() {
 		int distance = 0; // distance entre l'oiseau et les obstacles
 		for (Obstacle obstacle : listeObstacle) {
 
@@ -45,23 +35,7 @@ public class Collision {
 			}
 		}
 		return null;
-	}
-
-	/**
-	 * @return the listeObstacle
-	 */
-	public ArrayList<Obstacle> getListeObstacle() {
-		return listeObstacle;
-	}
-
-	/**
-	 * @param listeObstacle
-	 *            the listeObstacle to set
-	 */
-	public void setListeObstacle(ArrayList<Obstacle> listeObstacle) {
-		this.listeObstacle = listeObstacle;
-	}
-
+	}*/
 	public boolean collision() {
 		int x = bird.getX();
 		int y = bird.getY();
