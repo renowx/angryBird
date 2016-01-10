@@ -1,6 +1,11 @@
 package Jalon2.Vue;
 
+import static Jalon2.Controlleur.Transformation.passageRepereBG;
+import static Jalon2.Controlleur.Transformation.passageRepereHG;
+
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
@@ -8,19 +13,11 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import java.awt.Point;
 import Jalon2.Controlleur.Calculs;
 import Jalon2.Controlleur.Controlleur;
 import Jalon2.Controlleur.Moteur;
 import Jalon2.Modele.Bird;
 import Jalon2.Modele.Modele;
-import Jalon2.Modele.MouvementObstacle;
-import Jalon2.Modele.Obstacle;
-import java.awt.Color;
-import java.awt.event.MouseMotionAdapter;
-import java.util.ArrayList;
-import static Jalon2.Controlleur.Transformation.passageRepereBG;
-import static Jalon2.Controlleur.Transformation.passageRepereHG;
 
 public class BirdView extends JPanel implements Observer {
 

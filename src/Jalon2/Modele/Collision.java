@@ -1,7 +1,6 @@
 package Jalon2.Modele;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Gère la collison entre les l'oiseau et les Obstacle ou les bord.

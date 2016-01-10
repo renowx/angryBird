@@ -1,16 +1,16 @@
 package Jalon2.Modele;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-import Jalon2.Controlleur.Vecteur;
-import java.awt.Point;
-import java.awt.geom.Point2D;
 
-public class Bird  {
-	private int x = 150;
-	private int y = 510;
+import Jalon2.Controlleur.Vecteur;
+
+public class Bird {
+	private int x = 100;
+	private int y = 500;
 	private int taille;
-        private Vecteur vitesse;
+	private Vecteur vitesse;
 	private List<Point> listePts = new ArrayList<>();
 
 	public Bird(int posX, int posY, int tailleBird) {
@@ -21,6 +21,7 @@ public class Bird  {
 
 	/**
 	 * Définis les coordonnées de l'oiseau
+	 * 
 	 * @param int x
 	 * @param int y
 	 **/
@@ -89,6 +90,7 @@ public class Bird  {
 
 	/**
 	 * Vérifie si le point (x,y) se situe sur l'oiseau
+	 * 
 	 * @param int x
 	 * @param int y
 	 * @return boolean
@@ -105,73 +107,81 @@ public class Bird  {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Vérifie si l'oiseau est pret a etre tire
+	 * 
 	 * @param int x
 	 * @param int y
-	 * @param Point prec
+	 * @param Point
+	 *            prec
 	 **/
-	public boolean readyForFire(int x, int y, Point prec){
-		if (x < prec.getX() && y > prec.getY()){
+	public boolean readyForFire(int x, int y, Point prec) {
+		if (x < prec.getX() && y > prec.getY()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-    /**
-     * Renvoi le Vecteur vitesse
-     * @return Vecteur vitesse
-     */
-    public Vecteur getVitesse() {
-        return vitesse;
-    }
+	/**
+	 * Renvoi le Vecteur vitesse
+	 * 
+	 * @return Vecteur vitesse
+	 */
+	public Vecteur getVitesse() {
+		return vitesse;
+	}
 
-    /**
-     * Affecte une vitesse au Vecteur vitesse de l'oiseau
-     * @param vitesse the vitesse to set
-     */
-    public void setVitesse(Vecteur vitesse) {
-        this.vitesse = vitesse;
-    }
-    
-    /**
-     * Affecte une valeur au point y du Vecteur
-     * @param int y : la valeur à affecter
-     **/
-    public void setVitesseY(int y){
-        vitesse.setY(y);
-    }
-    
-    /**
-     * Affecte une valeur au point x du Vecteur
-     * @param int x : la valeur à affecter
-     **/
-    public void setVitesseX(int x){
-        vitesse.setX(x);
-    }
-    
-    /**
-     * Retourne la distance entre l'obstcle et l'oiseau
-     * @param o l'obstacle
-     * @return la distance entre l'obstacle et l'oiseau
-     */
-    public int distanceObstacle(Obstacle o){
-      return (int) new Point(x,y).distance(new Point(o.getX(),o.getY()));
-    }
-    
-    /**
-     * Renvoie une String contenant la valeur de x, la valeur de y,
-     * et la valeur du toString du Vecteur vitesse
-     * 
-     * @return String : int x, int y, Vecteur Vitesse
-     **/
-        @Override
-    public String toString(){
-        return "x:"+x+" y: "+y+"\n"+vitesse;
-        
-    }
+	/**
+	 * Affecte une vitesse au Vecteur vitesse de l'oiseau
+	 * 
+	 * @param vitesse
+	 *            the vitesse to set
+	 */
+	public void setVitesse(Vecteur vitesse) {
+		this.vitesse = vitesse;
+	}
+
+	/**
+	 * Affecte une valeur au point y du Vecteur
+	 * 
+	 * @param int y : la valeur à affecter
+	 **/
+	public void setVitesseY(int y) {
+		vitesse.setY(y);
+	}
+
+	/**
+	 * Affecte une valeur au point x du Vecteur
+	 * 
+	 * @param int x : la valeur à affecter
+	 **/
+	public void setVitesseX(int x) {
+		vitesse.setX(x);
+	}
+
+	/**
+	 * Retourne la distance entre l'obstcle et l'oiseau
+	 * 
+	 * @param o
+	 *            l'obstacle
+	 * @return la distance entre l'obstacle et l'oiseau
+	 */
+	public int distanceObstacle(Obstacle o) {
+		return (int) new Point(x, y).distance(new Point(o.getX(), o.getY()));
+	}
+
+	/**
+	 * Renvoie une String contenant la valeur de x, la valeur de y, et la valeur
+	 * du toString du Vecteur vitesse
+	 * 
+	 * @return String : int x, int y, Vecteur Vitesse
+	 **/
+	@Override
+	public String toString() {
+		return "x:" + x + " y: " + y + "\n" + vitesse;
+
+	}
 
 }
-
