@@ -119,20 +119,8 @@ public class Modele extends Observable {
 		setChanged();
 		notifyObservers();
 	}
-<<<<<<< HEAD
 
 	public int getX() {
-		return bird.getX();
-	}
-
-	public int getY() {
-=======
-	
-	/**
-	 * Retourne la valeur de x de l'oiseau
-	 * @return int
-	 **/
-	public int getX(){
 		return bird.getX();
 	}
 	
@@ -141,7 +129,6 @@ public class Modele extends Observable {
 	 * @return int
 	 **/
 	public int getY(){
->>>>>>> origin/master
 		return bird.getY();
 	}
 	
