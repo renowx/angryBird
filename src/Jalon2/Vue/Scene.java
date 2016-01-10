@@ -53,6 +53,7 @@ public class Scene extends JFrame {
 
 			s.bView.controlleur.letsGo();
 			s.bView.mouseRelease = false;
+
 		}
 
 	}
