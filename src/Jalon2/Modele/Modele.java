@@ -154,6 +154,7 @@ public class Modele extends Observable {
 		return false;
 	}
 
+	// Il semblerait que ça soit le changement de repère et donc de points qui empêche le déclenchement des collisions 
 	public boolean estSurObsX(int x) {
 		for (int i = 0; i < obstacles.size(); i++) {
 			if ((x >= obstacles.get(i).getX() - obstacles.get(i).getTaille())

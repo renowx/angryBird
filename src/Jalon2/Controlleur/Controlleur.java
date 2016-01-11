@@ -113,7 +113,7 @@ public class Controlleur {
 				}
 			}
 			try {
-				Thread.sleep(100); // nouvelle postition toutes les 100
+				Thread.sleep(70); // nouvelle postition toutes les 100
 									// miliseconde
 			} catch (InterruptedException ex) {
 
