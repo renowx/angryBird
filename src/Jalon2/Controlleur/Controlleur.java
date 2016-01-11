@@ -83,8 +83,9 @@ public class Controlleur {
 																// la modifier
 																// ou
 																// non
-		} else if (modele.collision()){
-			System.out.println("\n\n--------------------------------------collision--------------------------------------\n\n");
+		} else if (modele.collision()) {
+			System.out
+					.println("\n\n--------------------------------------collision--------------------------------------\n\n");
 		}
 	}
 

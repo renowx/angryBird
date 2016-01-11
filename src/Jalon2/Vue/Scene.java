@@ -13,6 +13,7 @@ import Jalon2.Modele.Modele;
  * @author ouvryl
  */
 public class Scene extends JFrame {
+	
 	Modele modele;
 	private static Bird b = new Bird(100, 500, 50);
 	public static Scene s;
@@ -43,6 +44,7 @@ public class Scene extends JFrame {
 		// classe ne rend pas la
 		// main sur l'affichage.
 		for (int i = 0; i < 5; i++) {
+			
 			while (!s.bView.mouseRelease) {
 				try {
 					Thread.sleep(50);

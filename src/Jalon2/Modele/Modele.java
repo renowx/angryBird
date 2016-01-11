@@ -6,7 +6,9 @@
 
 package Jalon2.Modele;
 
+import Jalon2.Controlleur.Transformation;
 import Jalon2.Controlleur.Vecteur;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -31,7 +33,7 @@ public class Modele extends Observable {
 	MouvementObstacle ob4;
 	MouvementObstacle ob5;
 	MouvementObstacle ob6;
-
+	
 	public Modele() {
 
 		// mis en place des obstacles
