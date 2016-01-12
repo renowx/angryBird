@@ -1,7 +1,8 @@
 package Jalon2.Controlleur;
 
-import static Jalon2.Controlleur.Transformation.passageRepereBG;
-import static Jalon2.Controlleur.Transformation.passageRepereHG;
+import Jalon2.Modele.Vecteur;
+import static Jalon2.Modele.Transformation.passageRepereBG;
+import static Jalon2.Modele.Transformation.passageRepereHG;
 import Jalon2.Modele.Bird;
 import Jalon2.Modele.Modele;
 import Jalon2.Modele.Obstacle;

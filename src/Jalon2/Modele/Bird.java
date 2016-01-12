@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import Jalon2.Controlleur.Vecteur;
 
 public class Bird {
 	private int x = 100;

@@ -6,8 +6,6 @@
 
 package Jalon2.Modele;
 
-import Jalon2.Controlleur.Transformation;
-import Jalon2.Controlleur.Vecteur;
 
 import java.awt.Point;
 import java.util.ArrayList;

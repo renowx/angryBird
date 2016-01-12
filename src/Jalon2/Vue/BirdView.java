@@ -1,7 +1,7 @@
 package Jalon2.Vue;
 
-import static Jalon2.Controlleur.Transformation.passageRepereBG;
-import static Jalon2.Controlleur.Transformation.passageRepereHG;
+import static Jalon2.Modele.Transformation.passageRepereBG;
+import static Jalon2.Modele.Transformation.passageRepereHG;
 
 import java.awt.Color;
 import java.awt.Graphics;
