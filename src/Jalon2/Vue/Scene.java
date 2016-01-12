@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import Jalon2.Controlleur.Controlleur;
 import Jalon2.Modele.Bird;
+import Jalon2.Modele.Deplacement;
 import Jalon2.Modele.Modele;
 
 /**
@@ -53,7 +54,7 @@ public class Scene extends JFrame {
 				}
 			}
 
-			s.bView.controlleur.letsGo();
+			                 new Deplacement(modele).letsGo();
 			s.bView.mouseRelease = false;
 
 		}
