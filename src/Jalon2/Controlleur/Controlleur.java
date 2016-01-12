@@ -1,13 +1,14 @@
 package Jalon2.Controlleur;
 
-import Jalon2.Modele.Bird;
-import Jalon2.Modele.Modele;
-import java.awt.Point;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static Jalon2.Controlleur.Transformation.passageRepereBG;
 import static Jalon2.Controlleur.Transformation.passageRepereHG;
+import Jalon2.Modele.Bird;
+import Jalon2.Modele.Modele;
 import Jalon2.Modele.Obstacle;
+import java.awt.Point;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * La position de l'oiseau arrive avec le repère en haut à gauche ( SWING) elle
@@ -76,13 +77,20 @@ public class Controlleur {
 					(passageRepereHG(b.getY() - b.getVitesse().getY())));
 
 			b.getVitesse().setY(b.getVitesse().getY() - 10); // valeur de
-																// l'apesenteur
-																// a
-																// voir si il
-																// faut
-																// la modifier
-																// ou
-																// non
+			                 System.out.println("afficheons les obstacle et l'oiseau positionnée en "+modele.getBird());													// l'apesenteur
+			for(Obstacle o: modele.getObstacles()){
+                            System.out.println(o);
+                        }
+                    try {
+                        sleep(2000);// a
+                        // voir si il
+                        // faut
+                        // la modifier
+                        // ou
+                        // non
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Controlleur.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		} else if (modele.collision()) {
 			System.out
 					.println("\n\n--------------------------------------collision--------------------------------------\n\n");
@@ -96,6 +104,13 @@ public class Controlleur {
 	 * fonction mousePressed)
 	 */
 	public void letsGo() {
+                System.out.println("AVANT"
+                        + " letsGo");
+            try {
+                sleep(10000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Controlleur.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		int i = 0; // arrêt en fonction du nombre de point pour le moment
 		o = null;
 		while (o == null) {
@@ -113,7 +128,7 @@ public class Controlleur {
 				}
 			}
 			try {
-				Thread.sleep(70); // nouvelle postition toutes les 100
+				Thread.sleep(10000); // nouvelle postition toutes les 100
 									// miliseconde
 			} catch (InterruptedException ex) {
 

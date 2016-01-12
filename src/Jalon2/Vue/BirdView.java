@@ -27,7 +27,7 @@ public class BirdView extends JPanel implements Observer {
 
 	ObstacleView ov;
 	Modele modele;
-	Boolean mouseRelease = false;
+	public Boolean mouseRelease = false;
 	Controlleur controlleur;
 
 	public BirdView(final Bird b, final Modele modele, Controlleur c) {
@@ -87,10 +87,10 @@ public class BirdView extends JPanel implements Observer {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		System.out.println("avant écran blanc");
+		//System.out.println("avant écran blanc");
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1200, 700);
-		System.out.println("après écran blan");
+		//System.out.println("après écran blan");
 		g.setColor(Color.BLACK);
 		g.drawLine(0, 650, Scene.s.getWidth(), 650);
 		g.drawOval(modele.getBird().getX(), passageRepereHG(modele.getBird()
