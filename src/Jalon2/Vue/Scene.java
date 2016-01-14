@@ -4,10 +4,7 @@ import javax.swing.JFrame;
 
 import Jalon2.Controlleur.Controlleur;
 import Jalon2.Modele.Bird;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
+import Jalon2.Modele.Deplacement;
 import Jalon2.Modele.Modele;
 
 /**
@@ -17,7 +14,7 @@ import Jalon2.Modele.Modele;
  * @author ouvryl
  */
 public class Scene extends JFrame {
-	
+
 	Modele modele;
 	private static Bird b = new Bird(100, 500, 50, 2);
 	public static Scene s;
@@ -48,7 +45,7 @@ public class Scene extends JFrame {
 		// classe ne rend pas la
 		// main sur l'affichage.
 		for (int i = 0; i < 5; i++) {
-			
+
 			while (!s.bView.mouseRelease) {
 				try {
 					Thread.sleep(50);
@@ -57,11 +54,8 @@ public class Scene extends JFrame {
 				}
 			}
 
-<<<<<<< HEAD
 			new Deplacement(modele).letsGo();
-=======
-			                c.letsGo();
->>>>>>> origin/master
+			c.letsGo();
 			s.bView.mouseRelease = false;
 
 		}

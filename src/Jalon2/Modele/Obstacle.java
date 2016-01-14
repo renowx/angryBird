@@ -29,7 +29,7 @@ public class Obstacle{
 	private Color couleur;
 
 	public Obstacle(Point c) {
-		System.out.println("crÃ©ation d'un obtacle");
+		System.out.println("création d'un obtacle");
 		this.c = c;
 		this.taille = 50;
 		this.actif = true;
