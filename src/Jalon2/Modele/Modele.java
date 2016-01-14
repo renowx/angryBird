@@ -71,7 +71,7 @@ public class Modele extends Observable {
 		obstacles.add(ob6);
 
 		// mise en place du bird
-		bird = new Bird(500, 700, 50, 2);
+		bird = new Bird(500, 700, 50);
 	}
 
 	/**

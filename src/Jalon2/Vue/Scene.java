@@ -16,7 +16,7 @@ import Jalon2.Modele.Modele;
 public class Scene extends JFrame {
 
 	Modele modele;
-	private static Bird b = new Bird(100, 500, 50, 2);
+	private static Bird b = new Bird(100, 500, 50);
 	public static Scene s;
 	public BirdView bView;
 	Controlleur c;
@@ -54,8 +54,12 @@ public class Scene extends JFrame {
 				}
 			}
 
+<<<<<<< HEAD
 			new Deplacement(modele).letsGo();
 			c.letsGo();
+=======
+			                 new Deplacement(modele).letsGo();
+>>>>>>> parent of dc981cf... masse oiseau
 			s.bView.mouseRelease = false;
 
 		}
