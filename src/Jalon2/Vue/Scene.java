@@ -54,12 +54,10 @@ public class Scene extends JFrame {
 				}
 			}
 
-<<<<<<< HEAD
+
 			new Deplacement(modele).letsGo();
 			c.letsGo();
-=======
 			                 new Deplacement(modele).letsGo();
->>>>>>> parent of dc981cf... masse oiseau
 			s.bView.mouseRelease = false;
 
 		}

@@ -1,15 +1,17 @@
 package Jalon2.Controlleur;
 
-import Jalon2.Modele.Vecteur;
 import static Jalon2.Modele.Transformation.passageRepereBG;
 import static Jalon2.Modele.Transformation.passageRepereHG;
+import static java.lang.Thread.sleep;
+
+import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import Jalon2.Modele.Bird;
 import Jalon2.Modele.Modele;
 import Jalon2.Modele.Obstacle;
-import java.awt.Point;
-import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Jalon2.Modele.Vecteur;
 
 /**
  * La position de l'oiseau arrive avec le repère en haut à gauche ( SWING) elle
@@ -77,9 +79,7 @@ public class Controlleur {
 			modele.PositionBird(b.getX() + b.getVitesse().getX(),
 					(passageRepereHG(b.getY() - b.getVitesse().getY())));
 
-<<<<<<< HEAD
-			b.getVitesse().setY(b.getVitesse().getY() - 10 * b.getMasse()); // valeur
-																			// de
+			b.getVitesse().setY(b.getVitesse().getY() - 10); // valeur de
 			System.out
 					.println("afficheons les obstacle et l'oiseau positionnée en "
 							+ modele.getBird()); // l'apesenteur
@@ -87,7 +87,7 @@ public class Controlleur {
 				System.out.println(o);
 			}
 			try {
-				sleep(2000);// a
+				sleep(100);// a
 				// voir si il
 				// faut
 				// la modifier
@@ -97,23 +97,6 @@ public class Controlleur {
 				Logger.getLogger(Controlleur.class.getName()).log(Level.SEVERE,
 						null, ex);
 			}
-=======
-			b.getVitesse().setY(b.getVitesse().getY() - 10); // valeur de
-			                 System.out.println("afficheons les obstacle et l'oiseau positionnée en "+modele.getBird());													// l'apesenteur
-			for(Obstacle o: modele.getObstacles()){
-                            System.out.println(o);
-                        }
-                    try {
-                        sleep(2000);// a
-                        // voir si il
-                        // faut
-                        // la modifier
-                        // ou
-                        // non
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Controlleur.class.getName()).log(Level.SEVERE, null, ex);
-                    }
->>>>>>> parent of dc981cf... masse oiseau
 		} else if (modele.collision()) {
 			System.out
 					.println("\n\n--------------------------------------collision--------------------------------------\n\n");
