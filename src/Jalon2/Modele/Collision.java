@@ -10,10 +10,15 @@ import java.util.ArrayList;
 public class Collision {
 
 	Modele modele;
-	Bird bird = modele.getBird();
+	Bird bird;
 	
-	ArrayList<Obstacle> listeObstacle = modele.getObstacles();
-
+	ArrayList<Obstacle> listeObstacle ;
+        
+        public Collision(Modele modele){
+            bird=modele.getBird();
+            this.modele=modele;
+            listeObstacle= modele.getObstacles();
+        }
 
 
 /*	public Obstacle obstColision() {

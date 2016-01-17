@@ -16,7 +16,7 @@ import Jalon2.Modele.Modele;
 public class Scene extends JFrame {
 
 	Modele modele;
-	private static Bird b = new Bird(100, 500, 50, 2);
+	private static Bird b;
 	public static Scene s;
 	public BirdView bView;
 	Controlleur c;
@@ -45,18 +45,21 @@ public class Scene extends JFrame {
 		// classe ne rend pas la
 		// main sur l'affichage.
 		for (int i = 0; i < 5; i++) {
-
-			while (!s.bView.mouseRelease) {
+                    
+			//while (!s.bView.mouseRelease) {
+                            System.out.println("pas commmencée");
 				try {
-					Thread.sleep(50);
+					Thread.sleep(100);
 				} catch (InterruptedException ex) {
 
 				}
-			}
+                                
+			//}
+                        System.out.println("début déplacement");
 
-			new Deplacement(modele).letsGo();
-			c.letsGo();
-			s.bView.mouseRelease = false;
+			//new Deplacement(modele).letsGo();
+			
+			//s.bView.mouseRelease = false;
 
 		}
 

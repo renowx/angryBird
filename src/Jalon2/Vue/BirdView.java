@@ -27,7 +27,7 @@ public class BirdView extends JPanel implements Observer {
 
 	ObstacleView ov;
 	Modele modele;
-	public Boolean mouseRelease = false;
+	public Boolean mouseRelease;
 	Controlleur controlleur;
 
 	public BirdView(final Bird b, final Modele modele, Controlleur c) {
@@ -36,10 +36,11 @@ public class BirdView extends JPanel implements Observer {
 		this.modele = modele;
 		modele.addObserver(this);
 		this.b = b;
+                mouseRelease=false;
 
 		this.addMouseListener(new MouseAdapter() {
 			boolean good = false;
-			Calculs a = new Calculs();
+			
 
 			// a changé car rest bloqué sur mouse pressed
 			@Override
@@ -61,6 +62,7 @@ public class BirdView extends JPanel implements Observer {
 			public void mouseReleased(MouseEvent e) {
 				System.out.println("mouse relachée");
 				mouseRelease = true;
+                                /*
 				if (b.readyForFire(e.getX(), e.getY(), pa) && good) {
 					pb = new Point(e.getX(), e.getY());
 					double angle = a.angle(pa, pb);
@@ -76,6 +78,7 @@ public class BirdView extends JPanel implements Observer {
 				} else {
 					System.out.println("Points incorrects");
 				}
+                                        */
 				pb = new Point(e.getX(), (e.getY()));
 				controlleur.CalculerVecteurVitesse(pa, pb);
 				mouseRelease = true;

@@ -26,7 +26,7 @@ public class Main {
                         }
                     }
 
-                    s.bView.controlleur.letsGo();
+                 
                     s.bView.mouseRelease=false;
                 }
              

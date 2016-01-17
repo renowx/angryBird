@@ -97,6 +97,11 @@ public class Deplacement {
 	 * fonction mousePressed)
 	 */
 	public void letsGo() {
+            System.out.println("obstacle\n\n");
+            for (Obstacle o: modele.getObstacles()) {
+                System.out.println(o);
+                
+            }
                 System.out.println("AVANT"
                         + " letsGo");
            
@@ -111,13 +116,13 @@ public class Deplacement {
 				System.out
 						.println("\n\n--------------------------------------collision--------------------------------------\n\n");
 				try {
-					Thread.sleep(4800);// pause de 5s ;
+					Thread.sleep(10000);// pause de 5s ;
 				} catch (InterruptedException ex) {
 					ex.getStackTrace();
 				}
 			}
-			try {
-				Thread.sleep(10000); // nouvelle postition toutes les 100
+			try {   // ici vitesse de déplacement de l'oiseau
+				Thread.sleep(10); // nouvelle postition toutes les 100
 									// miliseconde
 			} catch (InterruptedException ex) {
 
