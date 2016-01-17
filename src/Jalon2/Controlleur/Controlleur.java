@@ -79,24 +79,12 @@ public class Controlleur {
 			modele.PositionBird(b.getX() + b.getVitesse().getX(),
 					(passageRepereHG(b.getY() - b.getVitesse().getY())));
 
-			b.getVitesse().setY(b.getVitesse().getY() - 10 * b.getMasse()); // valeur
-																			// de
+			b.getVitesse().setY(b.getVitesse().getY() - 10*b.getPoids()); // valeur de
 			System.out
 					.println("afficheons les obstacle et l'oiseau positionnée en "
 							+ modele.getBird()); // l'apesenteur
 			for (Obstacle o : modele.getObstacles()) {
 				System.out.println(o);
-			}
-			try {
-				sleep(2000);// a
-				// voir si il
-				// faut
-				// la modifier
-				// ou
-				// non
-			} catch (InterruptedException ex) {
-				Logger.getLogger(Controlleur.class.getName()).log(Level.SEVERE,
-						null, ex);
 			}
 		} else if (modele.collision()) {
 			System.out
@@ -110,6 +98,42 @@ public class Controlleur {
 	 * l'utilisateur clique alors que l'oiseau est en vol ; (Pas de rappel de la
 	 * fonction mousePressed)
 	 */
-	
+
+	public void letsGo() {
+		/**System.out.println("AVANT" + " letsGo");
+		try {
+			sleep(10);
+		} catch (InterruptedException ex) {
+			Logger.getLogger(Controlleur.class.getName()).log(Level.SEVERE,
+					null, ex);
+		}**/
+		int i = 0; // arrêt en fonction du nombre de point pour le moment
+		o = null;
+		while (o == null || !modele.collision()) {
+			CalculeNouvellePositionBird();
+			//o = collision.obstColision();
+			System.out.println("1 temps i:" + i);
+			
+			if (o != null || modele.collision()) {
+				System.out
+						.println("\n\n--------------------------------------collision--------------------------------------\n\n");
+				try {
+					Thread.sleep(4800);// pause de 5s ;
+				} catch (InterruptedException ex) {
+					ex.getStackTrace();
+				}
+			}
+			try {
+				Thread.sleep(100); // nouvelle postition toutes les 100
+									// miliseconde
+			} catch (InterruptedException ex) {
+
+			}
+			i++;
+
+		}
+
+	}
+
 
 }

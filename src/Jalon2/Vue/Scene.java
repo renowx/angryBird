@@ -57,9 +57,13 @@ public class Scene extends JFrame {
 			//}
                         System.out.println("début déplacement");
 
+
 			//new Deplacement(modele).letsGo();
 			
 			//s.bView.mouseRelease = false;
+
+
+	
 
 		}
 

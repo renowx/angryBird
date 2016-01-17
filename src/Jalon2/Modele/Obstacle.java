@@ -74,13 +74,15 @@ public class Obstacle{
 	public void setTaille(int taille) {
 		this.taille = taille;
 	}
-
+	 
+	
 	public String toString() {
 		return " x: " + this.getX() + " y: " + this.getY() + " taille: "
 				+ this.getTaille() + " couleur:" + this.getCouleur();
 
 	}
-
+	
+	
 	public Point getC() {
 		return c;
 	}
