@@ -11,11 +11,13 @@ public class Bird {
 	private int taille;
 	private Vecteur vitesse;
 	private List<Point> listePts = new ArrayList<>();
+	private int poids;
 
-	public Bird(int posX, int posY, int tailleBird) {
+	public Bird(int posX, int posY, int tailleBird, int poids) {
 		this.setX(posX);
 		this.setY(posY);
 		this.setTaille(tailleBird);
+		this.setPoids(poids);
 	}
 
 	/**
@@ -181,6 +183,20 @@ public class Bird {
 	public String toString() {
 		return "x:" + x + " y: " + y + "\n" + vitesse;
 
+	}
+
+	/**
+	 * @return the poids
+	 */
+	public int getPoids() {
+		return poids;
+	}
+
+	/**
+	 * @param poids the poids to set
+	 */
+	public void setPoids(int poids) {
+		this.poids = poids;
 	}
 
 }

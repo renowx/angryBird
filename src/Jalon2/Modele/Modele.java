@@ -71,7 +71,7 @@ public class Modele extends Observable {
 		obstacles.add(ob6);
 
 		// mise en place du bird
-		bird = new Bird(500, 700, 50);
+		bird = new Bird(500, 700, 50, 2);
 	}
 
 	/**
@@ -140,7 +140,11 @@ public class Modele extends Observable {
 		bird.setVitesse(vevteurVitesseOiseau);
 		// ici pas de set changed car cela n'affecte pas directement la vue.
 	}
-
+	/**
+	 * est censé detecter les collisions selon les paramètres de l'oiseau et des obstacles
+	 * 
+	 * @return boolean
+	 */
 	public boolean collision() {
 		int x = bird.getX();
 		int y = bird.getY();
@@ -152,7 +156,11 @@ public class Modele extends Observable {
 		return false;
 	}
 
-	// Il semblerait que ça soit le changement de repère et donc de points qui empêche le déclenchement des collisions 
+	/**
+	 * regarde si les coordonnées d'au moins un obstacle et l'oiseau, en X, se croisent 
+	 * @param x
+	 * @return boolean
+	 */
 	public boolean estSurObsX(int x) {
 		for (int i = 0; i < obstacles.size(); i++) {
 			if ((x >= obstacles.get(i).getX() - obstacles.get(i).getTaille())
@@ -164,7 +172,11 @@ public class Modele extends Observable {
 		}
 		return false;
 	}
-	
+	/**
+	 * regarde si les coordonnées d'au moins un obstacle et l'oiseau, en Y, se croisent 
+	 * @param y
+	 * @return boolean
+	 */
 	public boolean estSurObsY(int y) {
 		for (int i = 0; i < obstacles.size(); i++) {
 			if ((y >= obstacles.get(i).getY() - obstacles.get(i).getTaille())

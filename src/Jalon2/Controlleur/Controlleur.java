@@ -79,7 +79,7 @@ public class Controlleur {
 			modele.PositionBird(b.getX() + b.getVitesse().getX(),
 					(passageRepereHG(b.getY() - b.getVitesse().getY())));
 
-			b.getVitesse().setY(b.getVitesse().getY() - 10); // valeur de
+			b.getVitesse().setY(b.getVitesse().getY() - 10*b.getPoids()); // valeur de
 			System.out
 					.println("afficheons les obstacle et l'oiseau positionnée en "
 							+ modele.getBird()); // l'apesenteur
